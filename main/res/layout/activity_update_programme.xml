@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@drawable/backg">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Update Programme Details"
+        android:textColor="#ffffff"
+        android:id="@+id/up_heading_2"
+        android:layout_marginTop="86dp"
+        android:layout_gravity="center"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/exit_programme_button" />
+
+    <AutoCompleteTextView
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/auto_update"
+        android:textColor="#000000"
+        android:hint="Programme"
+        android:layout_above="@+id/tv_year_update"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="44dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Year"
+        android:textSize="18dp"
+        android:textColor="#ffffff"
+        android:layout_marginLeft="-20dp"
+        android:id="@+id/tv_year_update"
+        android:layout_above="@+id/year_update"
+        android:layout_centerHorizontal="true" />Z
+
+
+    <Button
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:id="@+id/update_button"
+        android:background="@color/colorPrimary"
+        android:text="Save"
+        android:textColor="@color/common_google_signin_btn_text_dark_default"
+        android:layout_alignTop="@+id/exit_programme_button"
+        android:layout_alignEnd="@+id/auto_update"
+        android:layout_marginEnd="16dp" />
+
+    <NumberPicker
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:id="@+id/year_update"
+        android:ems="2"
+        android:layout_marginRight="-15dp"
+        android:layout_above="@+id/exit_programme_button"
+        android:layout_alignEnd="@+id/tv_year_update"
+        android:layout_marginBottom="95dp" />
+
+    <Button
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:background="@color/colorPrimary"
+        android:text="Back"
+        android:textColor="@color/common_google_signin_btn_text_dark_default"
+        android:id="@+id/exit_programme_button"
+        android:layout_alignParentBottom="true"
+        android:layout_toStartOf="@+id/year_update"
+        android:layout_marginBottom="41dp" />
+
+
+</RelativeLayout>

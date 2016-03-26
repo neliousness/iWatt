@@ -1,0 +1,67 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="uk.ac.hw.macs.nl148.freshersapp.GettingStartedFragment"
+    android:background="@drawable/backg">
+
+    <!-- TODO: Update blank fragment layout -->
+
+
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="Name "
+        android:ems="12"
+        android:id="@+id/name"
+        android:layout_marginTop="126dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="66dp"
+        android:layout_marginStart="66dp"
+        android:enabled="true"
+        android:focusableInTouchMode="true"
+        android:textColor="#FFFFFF"
+        android:fontFamily="simple-tfb"
+        android:typeface="sans"
+        android:elegantTextHeight="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="Surname"
+        android:ems="12"
+        android:id="@+id/surname"
+        android:layout_below="@+id/name"
+        android:layout_alignLeft="@+id/name"
+        android:layout_alignStart="@+id/name"
+        android:layout_marginTop="65dp"
+        android:textColor="#FFFFFF"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="Username"
+        android:ems="12"
+        android:id="@+id/username"
+        android:layout_marginTop="62dp"
+        android:layout_below="@+id/surname"
+        android:layout_alignLeft="@+id/surname"
+        android:layout_alignStart="@+id/surname"
+        android:textColor="#FFFFFF"/>
+
+    <ImageView
+        android:id="@+id/swipe_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/swipe_icon"
+        android:layout_marginBottom="-40dp"
+        android:layout_marginRight="-60dp"/>
+
+
+</RelativeLayout>

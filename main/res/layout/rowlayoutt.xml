@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:stretchColumns="*"
+    style="@style/Widget.AppCompat.Button.Colored"
+    android:clickable="false"
+    android:backgroundTint="@color/colorPrimaryDark"
+    android:focusableInTouchMode="false"
+    android:longClickable="true">
+
+
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="coursetitle"
+        android:layout_marginLeft="-0dp"
+        android:layout_gravity="left"
+        android:id="@+id/coursetitle" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="coursetype"
+        android:layout_gravity="left"
+        android:layout_marginTop="0dp"
+        android:layout_marginLeft="-0dp"
+        android:id="@+id/coursetype"
+         />
+
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Room2"
+        android:layout_marginLeft="-0dp"
+        android:layout_gravity="left"
+        android:layout_marginTop="18dp"
+        android:id="@+id/room2" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Start"
+        android:layout_marginTop="-17dp"
+        android:layout_marginLeft="0dp"
+        android:id="@+id/start_time"
+        android:textColor="#8fe96f" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="End"
+        android:id="@+id/endtime"
+        android:layout_marginTop="-19dp"
+        android:layout_marginLeft="60dp"
+        android:textColor="#e93737" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_marginTop="-43dp"
+        android:layout_marginLeft="0dp"
+        android:text="Start"
+        android:id="@+id/textView4"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="End"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="-19dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Room1"
+        android:layout_marginTop="-25dp"
+        android:layout_marginLeft="-0dp"
+        android:layout_gravity="left"
+        android:id="@+id/room1" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Current Time"
+        android:layout_marginTop="-20dp"
+        android:layout_marginLeft="125dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="End"
+        android:id="@+id/current_time"
+        android:textColor="#FFFF00"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="135dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Semester"
+        android:id="@+id/semester"
+        android:layout_marginTop="0dp"
+        android:layout_gravity="left" />
+
+
+</LinearLayout>

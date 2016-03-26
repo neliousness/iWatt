@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_first_layout"
+            android:icon="@drawable/papers2"
+            android:title="Programme Settings" />
+        <item
+            android:id="@+id/nav_second_layout"
+            android:icon="@drawable/graduate22"
+
+            android:title="Personal Settings" />
+
+    </group>
+
+
+
+</menu>

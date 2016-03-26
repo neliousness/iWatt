@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:stretchColumns="*">
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+
+            android:text="Course"
+            android:layout_column="0"
+            android:padding="5dp"
+            android:textStyle="bold"
+            android:layout_span="4"
+            android:background="#c0c0c0"
+
+            />
+        <TextView
+            android:text="Type"
+            android:layout_column="1"
+            android:padding="5dp"
+            android:textStyle="bold"
+            android:background="#c0c0c0"
+            />
+        <TextView
+            android:text="Room 1"
+            android:layout_column="2"
+            android:padding="5dp"
+            android:textStyle="bold"
+            android:background="#c0c0c0"
+            />
+        <TextView
+            android:text="Room 2"
+            android:layout_column="3"
+            android:padding="5dp"
+            android:textStyle="bold"
+            android:background="#c0c0c0"
+            />
+        <TextView
+            android:text="Start Time"
+            android:layout_column="4"
+            android:padding="5dp"
+            android:textStyle="bold"
+            android:background="#c0c0c0"
+            />
+        <TextView
+            android:text="End Time"
+            android:layout_column="5"
+            android:padding="5dp"
+            android:textStyle="bold"
+            android:background="#c0c0c0"
+            />
+        <TextView
+            android:text="Semester"
+            android:layout_column="5"
+            android:padding="5dp"
+            android:textStyle="bold"
+            android:background="#c0c0c0"
+            />
+
+
+
+    </TableRow>
+
+
+</TableLayout>

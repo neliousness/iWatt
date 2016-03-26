@@ -1,0 +1,25 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="uk.ac.hw.macs.nl148.freshersapp.GettingStartedFragment"
+    android:background="@drawable/getting_started_done"
+    android:id="@+id/fragment4">
+
+    <!-- TODO: Update blank fragment layout -->
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#ffffff"
+        android:text="Finish"
+        android:textSize="12dp"
+        android:alpha="0.8"
+        android:background="@drawable/finished"
+        style="?android:attr/borderlessButtonStyle"
+        android:id="@+id/finish_getting_started"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="127dp" />
+</RelativeLayout>

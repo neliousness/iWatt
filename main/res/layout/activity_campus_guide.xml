@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backg"
+    tools:context="uk.ac.hw.macs.nl148.iwatt.CampusGuide">
+
+
+    <Button
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:id="@+id/wifi"
+        android:layout_marginTop="109dp"
+        android:layout_marginBottom="-10dp"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/common_google_signin_btn_text_dark_default"
+        android:text="Campus Wifi Guide"
+        android:background="@color/colorPrimary"
+        />
+
+    <Button
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:id="@+id/study_spaces"
+        android:layout_marginBottom="27dp"
+        android:textColor="@color/common_google_signin_btn_text_dark_default"
+        android:text="Study Spaces"
+        android:background="@color/colorPrimary"
+        android:layout_above="@+id/resources"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:id="@+id/resources"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/common_google_signin_btn_text_dark_default"
+        android:text="Find Resources"
+        android:background="@color/colorPrimary"
+        android:layout_marginBottom="-10dp"/>
+
+    <Button
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:id="@+id/study_support"
+        android:layout_marginTop="24dp"
+        android:textColor="@color/common_google_signin_btn_text_dark_default"
+        android:text="Study Support"
+        android:background="@color/colorPrimary"
+        android:layout_below="@+id/resources"
+        android:layout_alignStart="@+id/workshops" />
+
+    <Button
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:id="@+id/workshops"
+        android:textColor="@color/common_google_signin_btn_text_dark_default"
+        android:text="Power Hour Workshops"
+        android:background="@color/colorPrimary"
+        android:layout_marginTop="24dp"
+        android:layout_below="@+id/study_support"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:id="@+id/back"
+        android:layout_below="@+id/workshops"
+        android:background="@color/colorPrimary"
+        android:layout_centerHorizontal="true"
+        android:text="Back"
+        android:textColor="@color/common_google_signin_btn_text_dark_default"
+        android:layout_marginTop="50dp" />
+
+</RelativeLayout>

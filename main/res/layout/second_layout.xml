@@ -1,0 +1,93 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="uk.ac.hw.macs.nl148.freshersapp.GettingStartedFragment"
+    android:background="@drawable/backg">
+
+    <!-- TODO: Update blank fragment layout -->
+
+
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="12"
+        android:id="@+id/update_name"
+        android:layout_marginTop="126dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:hint="Name"
+        android:layout_marginLeft="66dp"
+        android:layout_marginStart="66dp"
+        android:enabled="true"
+        android:focusableInTouchMode="true"
+        android:textColor="#FFFFFF"
+        android:fontFamily="simple-tfb"
+        android:typeface="sans"
+        android:elegantTextHeight="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="12"
+        android:hint="Surname"
+        android:id="@+id/update_surname"
+        android:layout_below="@+id/update_name"
+        android:layout_alignLeft="@+id/update_name"
+        android:layout_alignStart="@+id/update_name"
+        android:layout_marginTop="65dp"
+        android:textColor="#FFFFFF"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="12"
+        android:id="@+id/update_username"
+        android:layout_marginTop="62dp"
+        android:hint="Username"
+        android:layout_below="@+id/update_surname"
+        android:layout_alignLeft="@+id/update_surname"
+        android:layout_alignStart="@+id/update_surname"
+        android:textColor="#FFFFFF"/>
+
+    <Button
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        style="?android:attr/borderlessButtonStyle"
+        android:background="@color/colorPrimary"
+        android:text="Save"
+        android:textColor="@color/common_google_signin_btn_text_dark_default"
+        android:id="@+id/update_student"
+        android:layout_marginTop="64dp"
+        android:layout_below="@+id/update_username"
+        android:layout_alignEnd="@+id/up_heading" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Update Personal Information"
+        android:id="@+id/up_heading"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textColor="#ffffff"
+        android:layout_marginTop="52dp" />
+
+    <Button
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:id="@+id/exit_student_update"
+        android:background="@color/colorPrimary"
+        android:text="Back"
+        android:layout_marginLeft="-50dp"
+        android:textColor="@color/common_google_signin_btn_text_dark_default"
+        android:layout_alignTop="@+id/update_student"
+        android:layout_alignStart="@+id/update_username" />
+
+
+</RelativeLayout>
