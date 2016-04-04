@@ -3,12 +3,14 @@ package uk.ac.hw.macs.nl148.iwatt;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
@@ -31,21 +33,10 @@ import java.util.List;
 
 public class Programme extends AppCompatActivity  implements View.OnClickListener {
 
-    TextView coursename;
-    TextView coordinator;
-    TextView aims;
-    TextView syllabus;
+
     TextView year;
     Button back;
     final ArrayList<Course> c = new ArrayList<>();
-   // AutoCompleteTextView autotx = null;
-
-
-
-
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,12 +46,6 @@ public class Programme extends AppCompatActivity  implements View.OnClickListene
 
 
        back = (Button) findViewById(R.id.programme_back);
-         /* coursename = (TextView) findViewById(R.id.course_name);
-        coordinator  = (TextView) findViewById(R.id.coordinator);
-        aims  = (TextView) findViewById(R.id.aims_content);
-        syllabus  = (TextView) findViewById(R.id.syllabus_content);
-        year =  (TextView) findViewById(R.id.stage_year);
-        autotx = (AutoCompleteTextView) findViewById(R.id.course_search);*/
         final ListView listView = (ListView) findViewById(R.id.programe_list);
 
         back.setOnClickListener(this);
@@ -87,6 +72,7 @@ public class Programme extends AppCompatActivity  implements View.OnClickListene
             final ArrayList<String> list = new ArrayList<String>();
             ProgressDialog progressBar;
 
+
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
@@ -111,11 +97,15 @@ public class Programme extends AppCompatActivity  implements View.OnClickListene
                             if(course.getCode().contentEquals(l.getCode())) {
                                 c.add(course);
                                 list.add(course.getCoursename());
-                                Log.d("show", course.toString());
+
+
+
                             }
                         }
 
                     }
+
+
                 }
 
 
@@ -185,7 +175,37 @@ public class Programme extends AppCompatActivity  implements View.OnClickListene
                         aims.setText(c.get(0).getAims());
                         syllabus.setText(c.get(0).getSyllabus());
                         year.setText("Year :" + c.get(0).getYear() + "");*/
-                        ArrayAdapter arrayAdapter = new ArrayAdapter(Programme.this, android.R.layout.select_dialog_item, list);
+                        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(Programme.this, android.R.layout.simple_list_item_1, list){
+                            @Override
+                            public View getView(int position, View convertView, ViewGroup parent){
+                                // Get the Item from ListView
+                                View view = super.getView(position, convertView, parent);
+
+                                // Initialize a TextView for ListView each Item
+                                TextView tv = (TextView) view.findViewById(android.R.id.text1);
+
+                                String names = (String) listView.getAdapter().getItem(position);
+                                for(Course cx : c)
+                                {
+
+                                    if (cx.getMandatory().equals("no") && names.equals(cx.getCoursename()))
+                                    {
+                                        // Set the text color of manadatory courses to Yellow
+                                        tv.setTextColor(Color.YELLOW);
+                                    }
+                                }
+
+
+
+
+
+                                // Generate ListView Item using TextView
+                                return view;
+                            }
+                        };
+
+
+
 
                         back.setTypeface(tf);
                         listView.setAdapter(arrayAdapter);

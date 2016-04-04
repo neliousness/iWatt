@@ -46,7 +46,7 @@ import java.util.List;
  * This shows how to create a simple activity with a map and a marker on the map.
  */
 public class KnowGo extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnMyLocationButtonClickListener,
-        ActivityCompat.OnRequestPermissionsResultCallback, View.OnClickListener {
+        ActivityCompat.OnRequestPermissionsResultCallback, View.OnClickListener,NavigationView.OnNavigationItemSelectedListener {
 
     DBHelper dbHelper;
     RuntimeExceptionDao<Student, Integer> studentDao = null;
@@ -188,6 +188,15 @@ public class KnowGo extends AppCompatActivity implements OnMapReadyCallback, Goo
         search.setOnClickListener(this);
         earth.setOnClickListener(this);
         mapFragment.getMapAsync(this);
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_know);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.setDrawerListener(toggle);
+        toggle.syncState();
+
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view_know);
+        navigationView.setNavigationItemSelectedListener(this);
     }
 
 
@@ -271,7 +280,6 @@ public class KnowGo extends AppCompatActivity implements OnMapReadyCallback, Goo
 
         mMap.addMarker(new MarkerOptions().position(EBS).title("Edinburgh Business School"));
 
-
         mMap.addMarker(new MarkerOptions().position(BUS1).title("Bus Stop").
                 icon(BitmapDescriptorFactory.fromResource(R.drawable.bus)));
 
@@ -295,8 +303,6 @@ public class KnowGo extends AppCompatActivity implements OnMapReadyCallback, Goo
 
         mMap.addMarker(new MarkerOptions().position(ELEMENTS).title("Elements").
                 icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_VIOLET)));
-
-
 
 
         mMap.getUiSettings();
@@ -388,5 +394,47 @@ public class KnowGo extends AppCompatActivity implements OnMapReadyCallback, Goo
 
     }
 
+    @Override
+    public void onBackPressed() {
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_know);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
+    }
+
+
+
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+
+        // Handle navigation view item clicks here.
+        FragmentManager fragmentManager = getFragmentManager();
+        int id = item.getItemId();
+
+        if (id == R.id.nav_home) {
+            //Intent i = new Intent(this,MainActivity.class);
+            finish();
+
+            // Handle the camera action
+        } else if (id == R.id.nav_preferences) {
+            /*fragmentManager.beginTransaction()
+                    .replace(R.id.content_frame, new SecondFragment())
+                    .commit();*/
+
+            Toast.makeText(this, "preferences are unavailable",Toast.LENGTH_SHORT).show();
+
+        }
+        else if (id == R.id.nav_help) {
+
+
+
+        }
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_know);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
+    }
 
 }

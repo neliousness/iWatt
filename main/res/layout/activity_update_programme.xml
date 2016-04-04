@@ -50,14 +50,14 @@
         android:layout_marginEnd="16dp" />
 
     <NumberPicker
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="60dp"
         android:id="@+id/year_update"
         android:ems="2"
         android:layout_marginRight="-15dp"
-        android:layout_above="@+id/exit_programme_button"
-        android:layout_alignEnd="@+id/tv_year_update"
-        android:layout_marginBottom="95dp" />
+        android:layout_marginBottom="91dp"
+        android:layout_above="@+id/update_button"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="120dp"
@@ -66,9 +66,10 @@
         android:text="Back"
         android:textColor="@color/common_google_signin_btn_text_dark_default"
         android:id="@+id/exit_programme_button"
+        android:layout_marginBottom="41dp"
         android:layout_alignParentBottom="true"
-        android:layout_toStartOf="@+id/year_update"
-        android:layout_marginBottom="41dp" />
+        android:layout_alignStart="@+id/auto_update"
+        android:layout_marginStart="14dp" />
 
 
 </RelativeLayout>

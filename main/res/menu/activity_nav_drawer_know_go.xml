@@ -3,19 +3,20 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_first_layout"
+            android:id="@+id/nav_home"
             android:icon="@drawable/papers2"
-            android:title="Programme Settings" />
+            android:title="Home" />
         <item
-            android:id="@+id/nav_second_layout"
+            android:id="@+id/nav_preferences"
             android:icon="@drawable/graduate22"
 
-            android:title="Personal Settings" />
+            android:title="Preferences" />
+
         <item
-            android:id="@+id/nav_about"
+            android:id="@+id/nav_help"
             android:icon="@drawable/graduate22"
 
-            android:title="About" />
+            android:title="Help" />
 
     </group>
 

@@ -78,7 +78,7 @@ public class GettingStartedFragFour extends Fragment {
                         public void onDataChange(DataSnapshot dataSnapshot) {
 
                             List<LocalCourse> log_delete = courseDao.queryForAll();
-                            courseDao.delete(log_delete);
+                           // courseDao.delete(log_delete);
                             for (DataSnapshot progshot : dataSnapshot.getChildren()) {
                                 Course c = progshot.getValue(Course.class);
 
@@ -90,19 +90,17 @@ public class GettingStartedFragFour extends Fragment {
                                     if (c.getMandatory().equals("yes")) {
 
 
-                                        // for (LocalCourse cc : lc) {
-                                        // this check prevents mandatory courses from duplicating
-                                        // if (!cc.getCode().equals(c.getCode())) {
                                         courseDao.createIfNotExists(new LocalCourse(c.getCode(), c.getYear(), c.getCoursename(), c.getCoordinator(), c.getMandatory()));
-                                        List<LocalCourse> log_course = courseDao.queryForAll();
-                                        Log.d("mandatory courses in getting started", log_course.toString());
-                                        //}
-                                        //   }
+
+
 
                                     }
                                 }
 
                             }
+                            List<LocalCourse> log_course = courseDao.queryForAll();
+                            Log.d("mandatory courses in getting started", log_course.toString());
+
 
                         }
 

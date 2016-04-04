@@ -197,8 +197,8 @@ public class UpdateProgramme extends AppCompatActivity implements View.OnClickLi
                                     }
 
                                 }
-                                List<LocalCourse> log_course = courseDao.queryForAll();
-                                Log.d("mandatory courses", log_course.toString());
+                                //List<LocalCourse> log_course = courseDao.queryForAll();
+                                //Log.d("mandatory courses", log_course.toString());
                             }
 
                             @Override
@@ -211,8 +211,8 @@ public class UpdateProgramme extends AppCompatActivity implements View.OnClickLi
 
 
                         Toast.makeText(this, "Programme Information updated!", Toast.LENGTH_SHORT).show();
-                        List<LocalProgramme> local = programmeDao.queryForAll();
-                        Log.d("bean", local.toString());
+                        //List<LocalProgramme> local = programmeDao.queryForAll();
+                        //Log.d("bean", local.toString());
                         Intent i = new Intent(this, MainActivity.class);
                         finish();
                         startActivity(i);

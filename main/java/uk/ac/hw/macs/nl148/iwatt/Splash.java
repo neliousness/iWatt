@@ -95,7 +95,7 @@ public class Splash extends Activity {
 
 
                         /**
-                         * Checks to see if local database is empty , if empty
+                         * Checks to see if local student table is empty , if empty
                          */
                         if(student.isEmpty()) {
 
