@@ -216,7 +216,7 @@ public class UpdateProgramme extends AppCompatActivity implements View.OnClickLi
                         startActivity(i);
                         OpenHelperManager.releaseHelper();
 
-
+                        Toast.makeText(this, "Programme Information updated!", Toast.LENGTH_SHORT).show();
                     }
                 }
 
@@ -224,7 +224,7 @@ public class UpdateProgramme extends AppCompatActivity implements View.OnClickLi
             {
 
             }
-            Toast.makeText(this, "Programme Information updated!", Toast.LENGTH_SHORT).show();
+
         }
 
         if(exit == v)

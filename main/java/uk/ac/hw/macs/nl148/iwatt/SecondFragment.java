@@ -80,9 +80,10 @@ public class SecondFragment extends Fragment implements View.OnClickListener{
 
         if(exit == v)
         {
-            Intent close = new Intent(getActivity(),MainActivity.class);
-            getActivity().finish();
-            startActivity(close);
+            //Intent close = new Intent(getActivity(),MainActivity.class);
+            //getActivity().finish();
+            //startActivity(close);
+            getActivity().getFragmentManager().beginTransaction().remove(this).commit();
         }
 
         if(update == v )

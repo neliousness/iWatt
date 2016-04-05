@@ -303,12 +303,6 @@ public class UpdateCourses extends AppCompatActivity implements View.OnClickList
 
                         courseDao.createIfNotExists(new LocalCourse(z.getCode(), z.getYear(), z.getCoursename(), z.getCoordinator(), z.getMandatory()));
 
-
-
-
-
-
-
                     }
 
                 }
@@ -336,6 +330,8 @@ public class UpdateCourses extends AppCompatActivity implements View.OnClickList
             Intent ii = new Intent(this, MainActivity.class);
             finish();
             startActivity(ii);
+
+
 
         }
 
