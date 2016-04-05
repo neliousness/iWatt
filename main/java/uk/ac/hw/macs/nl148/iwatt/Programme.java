@@ -195,10 +195,6 @@ public class Programme extends AppCompatActivity  implements View.OnClickListene
                                     }
                                 }
 
-
-
-
-
                                 // Generate ListView Item using TextView
                                 return view;
                             }

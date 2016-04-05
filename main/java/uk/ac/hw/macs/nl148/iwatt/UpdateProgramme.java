@@ -165,7 +165,7 @@ public class UpdateProgramme extends AppCompatActivity implements View.OnClickLi
                         cor.addValueEventListener(new ValueEventListener() {
 
                             DBHelper dbHelper2 = OpenHelperManager.getHelper(getApplicationContext(), DBHelper.class);
-                            RuntimeExceptionDao<LocalProgramme, Object>  programmeDao = dbHelper2.getProgrammeExceptionDao();
+                            RuntimeExceptionDao<LocalProgramme, Object> programmeDao = dbHelper2.getProgrammeExceptionDao();
                             RuntimeExceptionDao<LocalCourse, Object> courseDao = dbHelper2.getCourseExceptionDao();
 
                             List<LocalProgramme> locall = programmeDao.queryForAll();
@@ -180,7 +180,7 @@ public class UpdateProgramme extends AppCompatActivity implements View.OnClickLi
                                 for (DataSnapshot progshot : dataSnapshot.getChildren()) {
                                     Course c = progshot.getValue(Course.class);
 
-                                    Log.d("mandatory courses", locall.get(0).getYear()+"");
+                                    Log.d("mandatory courses", locall.get(0).getYear() + "");
                                     //check if courses correspond to programme year
                                     if (locall.get(0).getYear() == c.getYear()) {
 
@@ -188,9 +188,7 @@ public class UpdateProgramme extends AppCompatActivity implements View.OnClickLi
                                         if (c.getMandatory().equals("yes")) {
 
 
-
                                             courseDao.createIfNotExists(new LocalCourse(c.getCode(), c.getYear(), c.getCoursename(), c.getCoordinator(), c.getMandatory()));
-
 
 
                                         }
@@ -210,7 +208,7 @@ public class UpdateProgramme extends AppCompatActivity implements View.OnClickLi
 
 
 
-                        Toast.makeText(this, "Programme Information updated!", Toast.LENGTH_SHORT).show();
+
                         //List<LocalProgramme> local = programmeDao.queryForAll();
                         //Log.d("bean", local.toString());
                         Intent i = new Intent(this, MainActivity.class);
@@ -226,6 +224,7 @@ public class UpdateProgramme extends AppCompatActivity implements View.OnClickLi
             {
 
             }
+            Toast.makeText(this, "Programme Information updated!", Toast.LENGTH_SHORT).show();
         }
 
         if(exit == v)

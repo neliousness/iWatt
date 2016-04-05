@@ -16,12 +16,17 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AbsListView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -49,9 +54,8 @@ public class KnowGo extends AppCompatActivity implements OnMapReadyCallback, Goo
         ActivityCompat.OnRequestPermissionsResultCallback, View.OnClickListener,NavigationView.OnNavigationItemSelectedListener {
 
     DBHelper dbHelper;
-    RuntimeExceptionDao<Student, Integer> studentDao = null;
-    RuntimeExceptionDao<LocalProgramme, Integer> localProgrammesDao = null;
-    RuntimeExceptionDao<LocalCourse, Integer> courseDao = null;
+    RuntimeExceptionDao<Student, Object> studentDao = null;
+    RuntimeExceptionDao<LocalProgramme, Object> localProgrammesDao = null;
     TextView programeName;
     TextView studentName;
     String name = "";
@@ -108,7 +112,9 @@ public class KnowGo extends AppCompatActivity implements OnMapReadyCallback, Goo
 
     Button earth;
     Button search;
+    Button question;
     IterableMap<LatLng, String> locations = new HashedMap();
+
 
 
     @Override
@@ -119,6 +125,8 @@ public class KnowGo extends AppCompatActivity implements OnMapReadyCallback, Goo
         earth = (Button) findViewById(R.id.earth);
         findMap = (AutoCompleteTextView) findViewById(R.id.mapfind);
         search = (Button) findViewById(R.id.search);
+
+
 
         android.support.v7.widget.Toolbar toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.toolbar_know);
         toolbar.setOnClickListener(new View.OnClickListener() {
@@ -356,6 +364,13 @@ public class KnowGo extends AppCompatActivity implements OnMapReadyCallback, Goo
     }
 
     boolean on = false;
+    PopupWindow popUp;
+    LinearLayout layout;
+    TextView tv;
+    AbsListView.LayoutParams params;
+    LinearLayout mainLayout;
+    Button but;
+    boolean click = true;
     @Override
     public void onClick(View v) {
 
@@ -404,12 +419,38 @@ public class KnowGo extends AppCompatActivity implements OnMapReadyCallback, Goo
         }
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        studentName = (TextView) findViewById(R.id.student_name_nav);
+        programeName = (TextView) findViewById(R.id.student_programme_nav);
+
+        DBHelper dbHelper_prog = OpenHelperManager.getHelper(this, DBHelper.class);
+        localProgrammesDao = dbHelper_prog.getProgrammeExceptionDao();
+        studentDao = dbHelper_prog.getStudentExceptionDao();
+        List<LocalProgramme> programmes = localProgrammesDao.queryForAll();
+        List<Student> students = studentDao.queryForAll();
+        Typeface name_tf = Typeface.createFromAsset(getAssets(), "Simple tfb.ttf");
+        programme = programmes.get(0).getProgDesc();
+
+        name = students.get(0).getName();
+        surname = students.get(0).getSurname();
+
+        studentName.setText(name + " " + surname );
+        programeName.setText(programme);
+        studentName.setTypeface(name_tf);
+        programeName.setTypeface(name_tf);
+
+        //commented out to remove settings icon
+        //getMenuInflater().inflate(R.menu.nav, menu);
+        return true;
+    }
 
 
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
 
-        // Handle navigation view item clicks here.
+
         FragmentManager fragmentManager = getFragmentManager();
         int id = item.getItemId();
 
@@ -417,7 +458,7 @@ public class KnowGo extends AppCompatActivity implements OnMapReadyCallback, Goo
             //Intent i = new Intent(this,MainActivity.class);
             finish();
 
-            // Handle the camera action
+
         } else if (id == R.id.nav_preferences) {
             /*fragmentManager.beginTransaction()
                     .replace(R.id.content_frame, new SecondFragment())
@@ -426,9 +467,15 @@ public class KnowGo extends AppCompatActivity implements OnMapReadyCallback, Goo
             Toast.makeText(this, "preferences are unavailable",Toast.LENGTH_SHORT).show();
 
         }
-        else if (id == R.id.nav_help) {
+        else if (id == R.id.nav_map_key) {
 
+            fragmentManager.beginTransaction()
+                    .replace(R.id.map, new MapKey())
+                    .commit();
 
+            search.setVisibility(View.GONE);
+            earth.setVisibility(View.GONE);
+            findMap.setVisibility(View.GONE);
 
         }
 

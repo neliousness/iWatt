@@ -265,7 +265,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        studentName = (TextView) findViewById(R.id.student_name_nav);
+                studentName = (TextView) findViewById(R.id.student_name_nav);
         programeName = (TextView) findViewById(R.id.student_programme_nav);
 
         DBHelper dbHelper_prog = OpenHelperManager.getHelper(this, DBHelper.class);
@@ -318,9 +318,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     .replace(R.id.content_frame, new SecondFragment())
                     .commit();
 
+
+    } else if (id == R.id.nav_about) {
+        fragmentManager.beginTransaction()
+                .replace(R.id.content_frame, new About())
+                .commit();
+
+    }
+        else if (id == R.id.nav_home) {
+
+            Intent i = new Intent(this, MainActivity.class);
+            finish();
+            startActivity(i);
+
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+
+
+    DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }

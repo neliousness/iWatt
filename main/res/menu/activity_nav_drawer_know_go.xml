@@ -13,10 +13,10 @@
             android:title="Preferences" />
 
         <item
-            android:id="@+id/nav_help"
+            android:id="@+id/nav_map_key"
             android:icon="@drawable/graduate22"
 
-            android:title="Help" />
+            android:title="Map Key" />
 
     </group>
 
