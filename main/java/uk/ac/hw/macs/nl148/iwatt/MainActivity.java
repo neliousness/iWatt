@@ -228,7 +228,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         if(lec_rate == v)
         {
-            Toast.makeText(this,"This feature is unavailable", Toast.LENGTH_SHORT).show();
+           Intent lec_rate = new Intent(this,LectureRating.class);
+            startActivity(lec_rate);
         }
 
         if(enquires == v)

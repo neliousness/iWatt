@@ -4,8 +4,27 @@
     android:background="@drawable/about">
 
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="iWatt"
+        android:textColor="#ffffff"
+        android:textSize="30dp"
+        android:id="@+id/iWatt_about"
+        android:layout_marginBottom="106dp"
+        android:layout_above="@+id/version_about"
+        android:layout_centerHorizontal="true" />
 
-
-
-
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Verison"
+        android:textColor="#ffffff"
+        android:textSize="20dp"
+        android:id="@+id/version_about"
+        android:layout_marginBottom="31dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

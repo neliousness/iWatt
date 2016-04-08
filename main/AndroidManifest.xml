@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="uk.ac.hw.macs.nl148.iwatt"
-    >
+    package="uk.ac.hw.macs.nl148.iwatt">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -47,7 +46,7 @@
         <activity android:name=".TimeTable" />
         <activity android:name=".TimeTableInit" />
         <activity android:name=".ClassMap" />
-      >
+        >
         <activity
             android:name=".Programme"
             android:configChanges="keyboardHidden|orientation|screenLayout" />
@@ -60,7 +59,8 @@
         <activity android:name=".TimeTableCourse" />
         <activity android:name=".UpdateProgramme" />
         <activity android:name=".UpdateCourses" />
-        <activity android:name=".ProgrammeInfo"></activity>
+        <activity android:name=".ProgrammeInfo" />
+        <activity android:name=".LectureRating"></activity>
     </application>
 
 </manifest>

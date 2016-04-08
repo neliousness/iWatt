@@ -140,12 +140,10 @@ public class TimeTable extends AppCompatActivity implements View.OnClickListener
                 p.execute();
 
 
-                listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+                listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
-                    public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                         showOptions(parent, position);
-                        return false;
                     }
                 });
 

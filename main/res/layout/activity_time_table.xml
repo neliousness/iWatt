@@ -7,9 +7,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="uk.ac.hw.macs.nl148.freshersapp.TimeTable"
-
     android:orientation="horizontal"
-    android:clickable="true">
+    >
 
     <ListView
         android:id="@+id/timetable_list"

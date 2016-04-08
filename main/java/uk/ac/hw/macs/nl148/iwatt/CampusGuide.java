@@ -5,8 +5,6 @@ import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -35,7 +33,7 @@ public class CampusGuide extends AppCompatActivity implements View.OnClickListen
         resources = (Button) findViewById(R.id.resources);
         workshops = (Button) findViewById(R.id.workshops);
         study_support = (Button) findViewById(R.id.study_support);
-        back = (Button) findViewById(R.id.back);
+        back = (Button) findViewById(R.id.rate_back);
 
 
         wifi.setOnClickListener(this);

@@ -231,6 +231,7 @@ public class Programme extends AppCompatActivity  implements View.OnClickListene
 
                 String item = (String)listView.getAdapter().getItem(position);
 
+                Log.d("test",item);
                 Intent i = new Intent(getApplication() , ProgrammeInfo.class);
                 i.putExtra("course",item);
                 i.putExtra("courses",c);
