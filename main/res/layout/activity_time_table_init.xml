@@ -21,7 +21,7 @@
         android:text="Friday"
         android:textColor="@color/common_google_signin_btn_text_dark_default"
         android:id="@+id/friday"
-        android:layout_marginBottom="65dp"
+        android:layout_marginBottom="115dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
 
@@ -30,34 +30,34 @@
         android:layout_height="40dp"
         style="?android:attr/borderlessButtonStyle"
         android:background="@color/colorPrimary"
-        android:layout_centerHorizontal="true"
         android:text="Thursday"
         android:textColor="@color/common_google_signin_btn_text_dark_default"
         android:id="@+id/thursday"
+        android:layout_marginBottom="29dp"
         android:layout_above="@+id/friday"
-        android:layout_marginBottom="20dp" />
+        android:layout_alignStart="@+id/wednesday" />
 
     <Button
         android:layout_width="120dp"
         android:layout_height="40dp"
         android:background="@color/colorPrimary"
-        android:layout_centerHorizontal="true"
         android:text="Wednesday"
         android:textColor="@color/common_google_signin_btn_text_dark_default"
         android:id="@+id/wednesday"
+        android:layout_marginBottom="35dp"
         android:layout_above="@+id/thursday"
-        android:layout_marginBottom="20dp" />
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="120dp"
         android:layout_height="40dp"
         android:background="@color/colorPrimary"
-        android:layout_centerHorizontal="true"
         android:text="Tuesday"
         android:textColor="@color/common_google_signin_btn_text_dark_default"
         android:id="@+id/tuesday"
+        android:layout_marginBottom="27dp"
         android:layout_above="@+id/wednesday"
-        android:layout_marginBottom="21dp" />
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="120dp"
@@ -66,9 +66,9 @@
         android:text="Monday"
         android:textColor="@color/common_google_signin_btn_text_dark_default"
         android:id="@+id/monday"
+        android:layout_marginBottom="32dp"
         android:layout_above="@+id/tuesday"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="20dp" />
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -76,9 +76,20 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Select a day of the week"
         android:id="@+id/up_heading_3"
-        android:layout_above="@+id/monday"
         android:textColor= "#ffffff"
         android:fontFamily="Simple-tfb"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="32dp" />
+        android:layout_marginBottom="20dp"
+        android:layout_above="@+id/monday"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:background="@color/colorPrimary"
+        android:text="Back"
+        android:textColor="@color/common_google_signin_btn_text_dark_default"
+        android:id="@+id/init_back"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

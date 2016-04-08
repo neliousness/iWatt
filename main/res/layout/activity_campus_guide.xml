@@ -45,7 +45,7 @@
         android:layout_width="350dp"
         android:layout_height="50dp"
         android:id="@+id/study_support"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="31dp"
         android:textColor="@color/common_google_signin_btn_text_dark_default"
         android:text="Study Support"
         android:background="@color/colorPrimary"
@@ -59,9 +59,9 @@
         android:textColor="@color/common_google_signin_btn_text_dark_default"
         android:text="Power Hour Workshops"
         android:background="@color/colorPrimary"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="27dp"
         android:layout_below="@+id/study_support"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignStart="@+id/resources" />
 
     <Button
         android:layout_width="120dp"

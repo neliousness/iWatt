@@ -122,8 +122,8 @@ public class SecondFragment extends Fragment implements View.OnClickListener{
             else {
                 Toast.makeText(getActivity(), "Personal Information updated!", Toast.LENGTH_SHORT).show();
                 OpenHelperManager.releaseHelper();
-                List<Student> local = studentDao.queryForAll();
-                Log.d("bean", local.toString());
+                //List<Student> local = studentDao.queryForAll();
+                //Log.d("bean", local.toString());
                 Intent i = new Intent(getActivity(), MainActivity.class);
                 getActivity().finish();
                 startActivity(i);

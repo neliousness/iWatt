@@ -132,6 +132,7 @@ public class TimeTable extends AppCompatActivity implements View.OnClickListener
                     });
 
                     AlertDialog build = builder.create();
+                    build.setCanceledOnTouchOutside(false);
                     build.show();
                 }
                 timeTableAdapter = new TimeTableAdapter(getApplicationContext(), data);

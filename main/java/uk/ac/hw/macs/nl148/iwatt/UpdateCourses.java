@@ -135,6 +135,7 @@ public class UpdateCourses extends AppCompatActivity implements View.OnClickList
             });
 
             AlertDialog build = builder.create();
+            build.setCanceledOnTouchOutside(false);
             build.show();
         }
 

@@ -27,7 +27,11 @@ import com.j256.ormlite.stmt.DeleteBuilder;
 import com.j256.ormlite.stmt.UpdateBuilder;
 
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener , NavigationView.OnNavigationItemSelectedListener {
@@ -154,9 +158,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             surname = students.get(0).getSurname();
 
 
-
-
-
            //Toast.makeText(this,"list size" + student.size(),Toast.LENGTH_SHORT).show();
            //studentDao.delete(student);
            settings_button.setText("Hi " + name);
@@ -228,6 +229,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         if(lec_rate == v)
         {
+
            Intent lec_rate = new Intent(this,LectureRating.class);
             startActivity(lec_rate);
         }

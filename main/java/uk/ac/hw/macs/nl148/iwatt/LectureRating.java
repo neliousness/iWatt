@@ -1,7 +1,11 @@
 package uk.ac.hw.macs.nl148.iwatt;
 
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.AsyncTask;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,6 +14,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.j256.ormlite.android.apptools.OpenHelperManager;
@@ -56,11 +61,23 @@ public class LectureRating extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_lecture_rating);
+        setContentView(R.layout.i);
+
+        android.support.v7.widget.Toolbar toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.toolbar_lecture_rating);
+
+
+        TextView toolbar_title = (TextView) toolbar.findViewById(R.id.toolbar_title10);
+        Typeface tf = Typeface.createFromAsset(getAssets(), "Simple tfb.ttf");
+        toolbar.setTitle("");
+        toolbar_title.setTypeface(tf);
+        setSupportActionBar(toolbar);
 
         submit = (Button) findViewById(R.id.submit);
         submit.setOnClickListener(this);
         questions = new ArrayList<>();
+
+        back = (Button) findViewById(R.id.rate_back);
+        back.setOnClickListener(this);
 
         questions.add(new LectureRateData("Level of effort you put into the course",0.0f));
         questions.add(new LectureRateData("Level of skill/knowledge at start of course",0.0f));
@@ -76,7 +93,7 @@ public class LectureRating extends AppCompatActivity implements View.OnClickList
 
 
 
-         la = new LectureRatingAdapter(this,R.layout.question_layout,questions);
+        la = new LectureRatingAdapter(this,R.layout.question_layout,questions);
         listView = (ListView) findViewById(R.id.form_list);
 
         //listView.setAdapter(adapter);
@@ -89,6 +106,7 @@ public class LectureRating extends AppCompatActivity implements View.OnClickList
 
         ArrayList<String> coursenames = new ArrayList<>();
 
+        coursenames.add("[Select a course]");
         for(LocalCourse c : courses)
         {
             coursenames.add(c.getCoursename());
@@ -107,47 +125,58 @@ public class LectureRating extends AppCompatActivity implements View.OnClickList
 
         if(v == submit) {
 
+            if(!dropdown.getSelectedItem().toString().equals("[Select a course]")) {
 
-            ArrayList<LectureRateData> filteredArray = la.getResults();
+                ArrayList<LectureRateData> filteredArray = la.getResults();
 
-            //using hashset to prevent duplicate data
-            HashSet<LectureRateData> set = new HashSet<LectureRateData>();
-            set.addAll(filteredArray);
-            filteredArray.clear();
-            filteredArray.addAll(set);
+                //using hashset to prevent duplicate data
+                HashSet<LectureRateData> set = new HashSet<LectureRateData>();
+                set.addAll(filteredArray);
+                filteredArray.clear();
+                filteredArray.addAll(set);
 
-            //using forloop to get staff memeber
-            String staff = "";
-            for (LocalCourse c : courses) {
-                if (c.getCoursename().equals(dropdown.getSelectedItem().toString())) {
-                    staff = c.getCoordinator();
+                //using forloop to get staff memeber
+                String staff = "";
+                for (LocalCourse c : courses) {
+                    if (c.getCoursename().equals(dropdown.getSelectedItem().toString())) {
+                        staff = c.getCoordinator();
+                    }
                 }
-            }
 
-            //in future the staffs name would be dynmically entered
-            String message = "Dear " + staff + "," + "\n\n" +
-                    "This is a feedback form from one of your students attending " + dropdown.getSelectedItem().toString() +
-                    ".Please note that each question is rated out of 5." + "\n\n";
-
-
-            for (LectureRateData lecd : filteredArray) {
-                message += lecd.getQuestion() + "               rate: " + lecd.getRating() + "\n\n";
-            }
-
-            message += " \n\n Kind Regards, \n The iWatt Team";
-
-            System.out.print(message);
+                //in future the staffs name would be dynmically entered
+                String message = "Dear " + staff + "," + "\n\n" +
+                        "This is a feedback form from one of your students attending " + dropdown.getSelectedItem().toString() +
+                        ".Please note that each question is rated out of 5." + "\n\n\n";
 
 
-                if(filteredArray.size() != questions.size()) {
+                for (LectureRateData lecd : filteredArray) {
+                    message += lecd.getQuestion() + ".Rate: " + lecd.getRating() + "\n\n";
+                }
+
+                message += " \n\n Kind Regards, \n The iWatt Team";
+
+                System.out.print(message);
+
+
+                if (filteredArray.size() != questions.size()) {
 
                     Toast.makeText(this, "Please rate all questions", Toast.LENGTH_SHORT).show();
-                }else {
-                    Log.d("status","all is done");
+                } else {
+                    Log.d("status", "all is done");
                     sendMail("mrneliolucas@gmail.com", "Answered Evaluation Form for " + dropdown.getSelectedItem().toString(), message);
                 }
+            }
+            else
+            {
+                Toast.makeText(this, "Please select a course before submitting", Toast.LENGTH_SHORT).show();
+            }
 
 
+        }
+
+        if(v == back)
+        {
+            finish();
         }
 
     }
@@ -215,7 +244,36 @@ public class LectureRating extends AppCompatActivity implements View.OnClickList
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
             progressDialog.dismiss();
+            thankYouMessage();
+
         }
+
+         //displays a message after submission
+         private void thankYouMessage()
+         {
+             AlertDialog.Builder builder = new AlertDialog.Builder(LectureRating.this);
+             TextView tx = new TextView(LectureRating.this);
+             builder.setTitle("Lecture Rating");
+             builder.setMessage("\n" +
+                     "\nThank you for your time.Your feed back is important to us.\n" +
+                     "\n");
+             builder.setView(tx);
+             builder.setPositiveButton("OKAY", new DialogInterface.OnClickListener() {
+                 @Override
+                 public void onClick(DialogInterface dialog, int which) {
+
+
+                     Intent i = new Intent(getBaseContext(),MainActivity.class);
+                     finish();
+                     startActivity(i);
+
+                 }
+             });
+
+             AlertDialog build = builder.create();
+             build.setCanceledOnTouchOutside(false);
+             build.show();
+         }
 
         @Override
         protected Void doInBackground(Message... messages) {
@@ -226,5 +284,10 @@ public class LectureRating extends AppCompatActivity implements View.OnClickList
             }
             return null;
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
     }
 }

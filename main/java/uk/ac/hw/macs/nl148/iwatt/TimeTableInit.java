@@ -15,6 +15,7 @@ import java.util.Calendar;
 
 public class TimeTableInit extends AppCompatActivity implements View.OnClickListener{
 
+    Button back;
     Button monday;
     Button tuesday;
     Button wednsday;
@@ -29,13 +30,14 @@ public class TimeTableInit extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.h);
 
 
-
+        back = (Button) findViewById(R.id.init_back);
         monday = (Button) findViewById(R.id.monday);
         tuesday = (Button) findViewById(R.id.tuesday);
         wednsday = (Button) findViewById(R.id.wednesday);
         thursday = (Button) findViewById(R.id.thursday);
         friday = (Button) findViewById(R.id.friday);
         heading = (TextView) findViewById(R.id.up_heading_3);
+        back = (Button) findViewById(R.id.init_back);
 
 
         monday.setOnClickListener(this);
@@ -43,6 +45,7 @@ public class TimeTableInit extends AppCompatActivity implements View.OnClickList
         wednsday.setOnClickListener(this);
         thursday.setOnClickListener(this);
         friday.setOnClickListener(this);
+        back.setOnClickListener(this);
 
         Typeface tf = Typeface.createFromAsset(getAssets(), "Simple tfb.ttf");
 
@@ -119,6 +122,11 @@ public class TimeTableInit extends AppCompatActivity implements View.OnClickList
             timetable.putExtra("timetabledata",tlist);
             timetable.putExtra("dow" ,"fri");
             startActivity(timetable);
+        }
+
+        if (back == v)
+        {
+            finish();
         }
 
     }

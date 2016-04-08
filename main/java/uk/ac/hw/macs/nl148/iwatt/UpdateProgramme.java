@@ -180,7 +180,7 @@ public class UpdateProgramme extends AppCompatActivity implements View.OnClickLi
                                 for (DataSnapshot progshot : dataSnapshot.getChildren()) {
                                     Course c = progshot.getValue(Course.class);
 
-                                    Log.d("mandatory courses", locall.get(0).getYear() + "");
+                                    //Log.d("mandatory courses", locall.get(0).getYear() + "");
                                     //check if courses correspond to programme year
                                     if (locall.get(0).getYear() == c.getYear()) {
 

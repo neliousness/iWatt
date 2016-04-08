@@ -129,14 +129,7 @@ public class KnowGo extends AppCompatActivity implements OnMapReadyCallback, Goo
 
 
         android.support.v7.widget.Toolbar toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.toolbar_know);
-        toolbar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                KnowGo.this.finish();
-
-            }
-        });
 
         TextView toolbar_title = (TextView) toolbar.findViewById(R.id.toolbar_title2);
         Typeface tf = Typeface.createFromAsset(getAssets(), "Simple tfb.ttf");
