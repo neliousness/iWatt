@@ -141,7 +141,7 @@ public class KnowGo extends AppCompatActivity implements OnMapReadyCallback, Goo
         SupportMapFragment mapFragment =
                 (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
 
-
+        
 
         locations.put(MAIN_RECEPTION, "Main Reception");
         locations.put(EM_BUILDING, "Earl Mountbatten");
