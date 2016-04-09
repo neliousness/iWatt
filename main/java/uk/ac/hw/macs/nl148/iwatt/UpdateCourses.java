@@ -18,6 +18,7 @@ import android.widget.Button;
 import android.widget.CheckedTextView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.j256.ormlite.android.apptools.OpenHelperManager;
 import com.j256.ormlite.dao.RuntimeExceptionDao;
@@ -321,6 +322,7 @@ public class UpdateCourses extends AppCompatActivity implements View.OnClickList
 
             Intent ii = new Intent(this, MainActivity.class);
             finish();
+            Toast.makeText(this, "Electives saved!", Toast.LENGTH_SHORT).show();
             startActivity(ii);
 
         }
