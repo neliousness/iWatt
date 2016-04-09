@@ -96,7 +96,7 @@ public class LectureRating extends AppCompatActivity implements View.OnClickList
         questions.add(new LectureRatingData("I learnt and understood the subject materials in this course",0.0f));
         questions.add(new LectureRatingData("Instructor had a genuine interest in individual students",0.0f));
         questions.add(new LectureRatingData("Instructor was adequately accessible to students during office hours or after class",0.0f));
-        questions.add(new LectureRatingData("instructor is enthusiastic about teaching this course",0.0f));
+        questions.add(new LectureRatingData("Instructor is enthusiastic about teaching this course",0.0f));
 
 
 
@@ -158,7 +158,7 @@ public class LectureRating extends AppCompatActivity implements View.OnClickList
 
 
                 for (LectureRatingData lecd : filteredArray) {
-                    message += lecd.getQuestion() + ".Rate: " + lecd.getRating() + "\n\n";
+                    message += lecd.getQuestion() + ".\nRate: " + lecd.getRating() + "\n\n";
                 }
 
                 message += " \n\n Kind Regards, \n The iWatt Team";
