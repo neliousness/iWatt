@@ -11,8 +11,7 @@ This is a 4th year dissertation project
 ##Dependencies
 
     
-    compile 'com.android.support:appcompat-v7:23.1.1'
-    compile 'com.android.support:support-v4:23.1.1'
+  
     compile 'com.j256.ormlite:ormlite-core:4.48'
     compile 'com.j256.ormlite:ormlite-android:4.48'
     compile 'com.tojc.ormlite.android:ormlite-content-provider-library:1.0.4'
@@ -49,6 +48,16 @@ This is a 4th year dissertation project
 3. right click anywhere in the directory and click "open command window here"
 
 4. type "git clone https://github.com/neliousness/iWatt_Real.git" in the command prompt and press return
+
+
+Note: in your gradle file , make sure your packageOptions looks like this:
+
+ packagingOptions {
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/LICENSE-FIREBASE.txt'
+        exclude 'META-INF/NOTICE.txt'
+
+    }
 
 
 
