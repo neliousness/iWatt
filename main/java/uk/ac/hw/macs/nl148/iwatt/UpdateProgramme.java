@@ -30,7 +30,13 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * Author: Neio Lucas
+ * File : UpdateProgramme.java
+ * Platform : Android Operating System
+ * Date:  17/03/2016.
+ * Description: This activity allows the user to update their programme details
+ */
 
 public class UpdateProgramme extends AppCompatActivity implements View.OnClickListener {
 
@@ -42,22 +48,11 @@ public class UpdateProgramme extends AppCompatActivity implements View.OnClickLi
     TextView heading;
 
 
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.e);
         Firebase.setAndroidContext(this);
-
-
-
-
-
-        //dbHelper2 = OpenHelperManager.getHelper(getApplicationContext(), DBHelper.class);
-
 
 
         update = (Button) findViewById(R.id.update_button);
@@ -74,6 +69,7 @@ public class UpdateProgramme extends AppCompatActivity implements View.OnClickLi
             @Override
             public void onClick(View v) {
 
+                //close this activity when toolbar is pressed
                 UpdateProgramme.this.finish();
 
             }
@@ -100,7 +96,9 @@ public class UpdateProgramme extends AppCompatActivity implements View.OnClickLi
         year.setValue(programme.get(0).getYear());
 
         myCompleteTextView.setText(programme.get(0).getProgDesc());
-       OpenHelperManager.releaseHelper();
+
+        //closing database connection
+        OpenHelperManager.releaseHelper();
 
 
 
@@ -121,23 +119,27 @@ public class UpdateProgramme extends AppCompatActivity implements View.OnClickLi
         if(update == v) {
             try {
 
-
+                //opening database connection
                 DBHelper  dbHelper = OpenHelperManager.getHelper(getApplicationContext(), DBHelper.class);
-
                 RuntimeExceptionDao<LocalProgramme, Object>  programmeDao = dbHelper.getProgrammeExceptionDao();
 
+                //storing programme name into a list
                 List<LocalProgramme> programmes = programmeDao.queryForAll();
                 List<LocalProgramme> locall = programmeDao.queryForAll();
+
+                //creating a builder to update LocalProgramme table
                 UpdateBuilder<LocalProgramme,Object> updateBuilder = programmeDao.updateBuilder();
                 for ( LocalProgramme lcc : locall) {
-                    // set the criteria like you would a QueryBuilder
+
                     try {
+                        //update table where progCode equals the value ( lcc.getProgCode())
                         updateBuilder.where().eq("progCode", lcc.getProgCode());
                     } catch (SQLException e) {
                         e.printStackTrace();
                     }
-                    // update the value of your field(s)
+
                     try {
+                        // update the value of of  year and progDesc where progCode equals the value ( lcc.getProgCode())
                         updateBuilder.updateColumnValue("progDesc" /* column */, myCompleteTextView.getText().toString() /* value */);
                         updateBuilder.updateColumnValue("year" /* column */, year.getValue() + "" /* value */);
                     } catch (SQLException e) {
@@ -146,7 +148,7 @@ public class UpdateProgramme extends AppCompatActivity implements View.OnClickLi
 
 
 
-
+                        //check if user changed data. if not then display a message
                     if (programmes.get(0).getProgDesc().contentEquals(myCompleteTextView.getText().toString()) && (programmes.get(0).getYear() + "").contentEquals(year.getValue() + "")) {
                         Toast.makeText(this, "No changes to update", Toast.LENGTH_SHORT).show();
                     } else if (Integer.parseInt(year.getValue() + "".toString()) > programmes.get(0).getLength()) {
@@ -154,13 +156,14 @@ public class UpdateProgramme extends AppCompatActivity implements View.OnClickLi
                     } else {
 
                         try {
+                            // complete update transaction
                             updateBuilder.update();
                             Log.d("update course  status", lcc.toString());
                         } catch (SQLException e) {
                             e.printStackTrace();
                         }
 
-
+                        //establish a connection to Firebase database
                         Firebase cor = new Firebase("https://testering.firebaseio.com/");
                         cor.addValueEventListener(new ValueEventListener() {
 
@@ -173,6 +176,7 @@ public class UpdateProgramme extends AppCompatActivity implements View.OnClickLi
                             @Override
                             public void onDataChange(DataSnapshot dataSnapshot) {
 
+
                                 List<LocalCourse> log_delete = courseDao.queryForAll();
 
                                 //delete courses from old year
@@ -180,7 +184,7 @@ public class UpdateProgramme extends AppCompatActivity implements View.OnClickLi
                                 for (DataSnapshot progshot : dataSnapshot.getChildren()) {
                                     Course c = progshot.getValue(Course.class);
 
-                                    //Log.d("mandatory courses", locall.get(0).getYear() + "");
+
                                     //check if courses correspond to programme year
                                     if (locall.get(0).getYear() == c.getYear()) {
 
@@ -189,8 +193,6 @@ public class UpdateProgramme extends AppCompatActivity implements View.OnClickLi
 
 
                                             courseDao.createIfNotExists(new LocalCourse(c.getCode(), c.getYear(), c.getCoursename(), c.getCoordinator(), c.getMandatory()));
-
-
                                         }
                                     }
 
@@ -206,11 +208,6 @@ public class UpdateProgramme extends AppCompatActivity implements View.OnClickLi
 
                         });
 
-
-
-
-                        //List<LocalProgramme> local = programmeDao.queryForAll();
-                        //Log.d("bean", local.toString());
                         Intent i = new Intent(this, MainActivity.class);
                         finish();
                         startActivity(i);

@@ -8,6 +8,15 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+/**
+ * Author: Neio Lucas
+ * File : ProgrammeInfo.java
+ * Platform : Android Operating System
+ * Date:  04/03/2016.
+ * Description: This activity displays the details for each programme that is clicked from the list displayed
+ * in the Programmes feature.
+ */
+
 public class ProgrammeInfo extends AppCompatActivity {
 
     TextView coursename;

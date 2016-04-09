@@ -20,8 +20,14 @@ import com.j256.ormlite.dao.RuntimeExceptionDao;
 
 import java.util.List;
 
+
 /**
- * Created by mrnel on 01/02/2016.
+ * Author: Neio Lucas
+ * File : GettingStartedFragFour.java
+ * Platform : Android Operating System
+ * Date:  01/02/2016..
+ * Description: This fragment allows the user to finalize the registration process by being being
+ * prompt to press Finish
  */
 public class GettingStartedFragFour extends Fragment {
 

@@ -12,8 +12,14 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+
+
 /**
- * Created by mrnel on 19/02/2016.
+ * Author: Neio Lucas
+ * File : TimeTableAdapter.java
+ * Platform : Android Operating System
+ * Date:  19/02/2016.
+ * Description: This class uses an Array adapter to display each item in a list view using a pojos(TimeTableData) properties
  */
 public class TimeTableAdapter extends ArrayAdapter<TimeTableData> {
 

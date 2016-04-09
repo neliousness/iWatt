@@ -12,7 +12,11 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 /**
- * Created by mrnel on 14/03/2016.
+ * Author: Neio Lucas
+ * File : CourseAdapter.java
+ * Platform : Android Operating System
+ * Date: 02/04/2016
+ * Description: This class uses an Array adapter to display each item in a list view using a pojos(Course) properties
  */
 public class CourseAdapter extends ArrayAdapter<Course> {
 

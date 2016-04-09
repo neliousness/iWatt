@@ -2,9 +2,16 @@ package uk.ac.hw.macs.nl148.iwatt;
 
 import java.io.Serializable;
 
+
+
 /**
- * Created by mrnel on 19/02/2016.
+ * Author: Neio Lucas
+ * File : TimeTableData.java
+ * Platform : Android Operating System
+ * Date:  19/02/2016.
+ * Description: This class is a pojo. it stores properties that are read through the Firebase api
  */
+
 public class TimeTableData implements Serializable {
 
     private String code;

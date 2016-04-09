@@ -7,8 +7,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 /**
- * Created by mrnel on 01/02/2016.
+ * Author: Neio Lucas
+ * File : GettingStartedFragOne.java
+ * Platform : Android Operating System
+ * Date:  01/02/2016..
+ * Description: This fragament displays a welcome message when the application open for the first time
  */
+
 public class GettingStartedFragOne extends Fragment {
 
 

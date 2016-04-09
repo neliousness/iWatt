@@ -1,8 +1,14 @@
 package uk.ac.hw.macs.nl148.iwatt;
 
+
 /**
- * Created by mrnel on 04/02/2016.
+ * Author: Neio Lucas
+ * File : OnlineProgramme.java
+ * Platform : Android Operating System
+ * Date:  04/02/2016.
+ * Description: Description: This class is a pojo. it stores properties that are read through the Firebase api
  */
+
 public class OnlineProgramme {
 
 

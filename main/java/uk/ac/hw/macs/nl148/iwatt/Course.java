@@ -1,9 +1,12 @@
 package uk.ac.hw.macs.nl148.iwatt;
 
 import java.io.Serializable;
-
 /**
- * Created by mrnel on 28/02/2016.
+ * Author: Neio Lucas
+ * File : Course.java
+ * Platform : Android Operating System
+ * Date: 03/02/2016
+ * Description: This class is a pojo. it stores properties that are read through the Firebase api
  */
 public class Course  implements Serializable {
 

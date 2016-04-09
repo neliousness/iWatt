@@ -11,9 +11,18 @@ import com.j256.ormlite.table.TableUtils;
 
 import java.sql.SQLException;
 
+
+
 /**
- * Created by mrnel on 05/02/2016.
+ * Author: Neio Lucas
+ * File : DBHelper.java
+ * Platform : Android Operating System
+ * Date: 05/02/2016.
+ * Description: This class manages the database operations that create the database and manage CRUD
+ * operstions.
  */
+
+
 public class DBHelper extends OrmLiteSqliteOpenHelper {
 
     private static final  String DATABASE_NAME = "student_hw9.db";
@@ -32,6 +41,7 @@ public class DBHelper extends OrmLiteSqliteOpenHelper {
         super(context , DATABASE_NAME ,null , DATABASE_VERSION, R.raw.ormlite_config);
     }
 
+    //creates tables
     @Override
     public void onCreate(SQLiteDatabase database, ConnectionSource connectionSource) {
         try {
@@ -46,6 +56,7 @@ public class DBHelper extends OrmLiteSqliteOpenHelper {
         }
     }
 
+    //drops tables if they exist
     @Override
     public void onUpgrade(SQLiteDatabase database, ConnectionSource connectionSource, int oldVersion, int newVersion) {
         try {
@@ -58,6 +69,7 @@ public class DBHelper extends OrmLiteSqliteOpenHelper {
         }
     }
 
+    //Studet data access object
     public Dao<Student , Object> getStudentDao() throws SQLException {
         if(studentDao == null){
             studentDao = getDao(Student.class);
@@ -65,6 +77,7 @@ public class DBHelper extends OrmLiteSqliteOpenHelper {
         return studentDao;
     }
 
+    //LocalProgramme data access object
     public Dao<LocalProgramme , Object> getProgrammeDao() throws SQLException {
         if(programmeDao == null){
 
@@ -74,6 +87,7 @@ public class DBHelper extends OrmLiteSqliteOpenHelper {
         return programmeDao;
     }
 
+    //LocalCourse data access object
     public Dao<LocalCourse , Object> getCourseDao() throws SQLException {
         if(courseDao == null){
 
@@ -83,6 +97,7 @@ public class DBHelper extends OrmLiteSqliteOpenHelper {
         return courseDao;
     }
 
+    //runtime exceptions method for Student DAO
     public RuntimeExceptionDao<Student, Object> getStudentExceptionDao(){
         if(runtimeExceptionStudentDao == null)
         {
@@ -91,6 +106,7 @@ public class DBHelper extends OrmLiteSqliteOpenHelper {
         return  runtimeExceptionStudentDao;
     }
 
+    //runtime exceptions method for LocalProgramme DAO
     public RuntimeExceptionDao<LocalProgramme, Object> getProgrammeExceptionDao(){
         if(runtimeExceptionProgrammeDao == null)
         {
@@ -99,6 +115,7 @@ public class DBHelper extends OrmLiteSqliteOpenHelper {
         return  runtimeExceptionProgrammeDao;
     }
 
+    //runtime exceptions method for LocalCourse DAO
     public RuntimeExceptionDao<LocalCourse, Object> getCourseExceptionDao(){
         if(runtimeExceptionCourseDao == null)
         {

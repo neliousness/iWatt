@@ -3,14 +3,22 @@ package uk.ac.hw.macs.nl148.iwatt;
 /**
  * Created by mrnel on 06/04/2016.
  */
-public class LectureRateData {
+
+/**
+ * Author: Neio Lucas
+ * File : LectureRatingData.java
+ * Platform : Android Operating System
+ * Date:  06/04/2016..
+ * Description: This class is a pojo. it stores ratings and questions for the Lecture Rating feature
+ */
+public class LectureRatingData {
 
     private String question;
     float rating;
 
-    LectureRateData() {}
+    LectureRatingData() {}
 
-    public LectureRateData(String question, float rating) {
+    public LectureRatingData(String question, float rating) {
         this.question = question;
         this.rating = rating;
 
@@ -34,7 +42,7 @@ public class LectureRateData {
 
     @Override
     public String toString() {
-        return "LectureRateData{" +
+        return "LectureRatingData{" +
                 "question='" + question + '\'' +
                 ", rating=" + rating +
                 '}';

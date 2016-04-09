@@ -3,9 +3,15 @@ package uk.ac.hw.macs.nl148.iwatt;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
+
 /**
- * Created by mrnel on 14/03/2016.
+ * Author: Neio Lucas
+ * File : LocalCourse.java
+ * Platform : Android Operating System
+ * Date:  14/03/2016.
+ * Description: This class is a pojo. it stores mandory and optional course information
  */
+
 @DatabaseTable(tableName = "localcourse")
 public class LocalCourse {
 

@@ -34,6 +34,14 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * Author: Neio Lucas
+ * File : MainActivity.java
+ * Platform : Android Operating System
+ * Date:  22/01/2016.
+ * Description: This is the main activity (The applications home page)
+ */
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener , NavigationView.OnNavigationItemSelectedListener {
 
 

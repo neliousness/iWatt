@@ -4,6 +4,14 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 
+/**
+ * Author: Nelio Lucas
+ * File : GettingStarted.java
+ * Platform : Android Operating System
+ * Date:  01/02/2016.
+ * Description: This this activity is a holder for the registration fragments
+ */
+
 public class GettingStarted extends FragmentActivity {
 
     ViewPager viewPager;

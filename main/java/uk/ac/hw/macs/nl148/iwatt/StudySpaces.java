@@ -5,6 +5,14 @@ import android.os.Bundle;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 
+/**
+ * Author: Neio Lucas
+ * File : StudySpaces.java
+ * Platform : Android Operating System
+ * Date:  02/04/2016.
+ * Description:  This activity redirects the user to a webpage
+ */
+
 public class StudySpaces extends AppCompatActivity {
 
     WebView webv;

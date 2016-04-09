@@ -4,9 +4,12 @@ import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
 /**
- * Created by mrnel on 04/02/2016.
+ * Author: Neio Lucas
+ * File : LocalProgramme.java
+ * Platform : Android Operating System
+ * Date:  04/02/2016.
+ * Description: This class is a pojo. it stores the users selected programme
  */
-
 @DatabaseTable(tableName = "localprogramme")
 public class LocalProgramme {
 

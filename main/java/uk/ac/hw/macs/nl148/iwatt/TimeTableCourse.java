@@ -1,24 +1,27 @@
 package uk.ac.hw.macs.nl148.iwatt;
 
-import android.app.ProgressDialog;
-import android.content.pm.ActivityInfo;
 import android.graphics.Typeface;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.TextView;
 
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
-import com.j256.ormlite.android.apptools.OpenHelperManager;
-import com.j256.ormlite.dao.RuntimeExceptionDao;
 
 import java.util.ArrayList;
-import java.util.List;
+
+/**
+ * Author: Neio Lucas
+ * File : TimeTableCourse.java
+ * Platform : Android Operating System
+ * Date:  19/02/2016.
+ * Description: This activty displays the course details when selected from the Alert dialogue after
+ * a lecture is pressed (in the time table feature)
+ */
+
 
 public class TimeTableCourse extends AppCompatActivity {
 
@@ -73,7 +76,7 @@ public class TimeTableCourse extends AppCompatActivity {
 
 
 
-        }
+            }
 
             @Override
             public void onCancelled(FirebaseError firebaseError) {

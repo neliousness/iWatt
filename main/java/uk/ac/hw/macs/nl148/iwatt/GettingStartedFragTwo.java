@@ -18,8 +18,14 @@ import com.j256.ormlite.dao.RuntimeExceptionDao;
 import java.util.List;
 
 /**
- * Created by mrnel on 01/02/2016.
+ * Author: Neio Lucas
+ * File : GettingStartedFragTwo.java
+ * Platform : Android Operating System
+ * Date:  01/02/2016..
+ * Description: This fragments prompta the user to enter his/her name ,surname and user name when
+ * they first register with the application
  */
+
 public class GettingStartedFragTwo extends Fragment {
 
     private  DBHelper dbHelper;

@@ -28,9 +28,16 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+
 /**
- * Created by mrnel on 25/02/2016.
+ * Author: Neio Lucas
+ * File : FirstFragment.java
+ * Platform : Android Operating System
+ * Date:  25/02/2016..
+ * Description: This this fragement displays the options that allow the user to manage his/her
+ * programme and/or manage his/her electives.
  */
+
 public class FirstFragment extends Fragment implements View.OnClickListener {
 
     View view;

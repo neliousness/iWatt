@@ -14,15 +14,19 @@ import android.widget.EditText;
 
 import java.util.ArrayList;
 
+
+
 /**
- * Created by mrnel on 25/02/2016.
+ * Author: Neio Lucas
+ * File : Preferences.java
+ * Platform : Android Operating System
+ * Date:  25/02/2016.
+ * Description: This fragment allows the user to select the type of markers to display on the map.
+ * Note: this feature is not yet funtional
  */
 public class Preferences extends Fragment {
 
     View view;
-
-
-
 
 
     @Nullable

@@ -22,9 +22,16 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+
 /**
- * Created by mrnel on 25/02/2016.
+ * Author: Neio Lucas
+ * File : SecondFragment.java
+ * Platform : Android Operating System
+ * Date:  25/02/2016.
+ * Description: This fragment displays the users personal information. wllowing him/her to edit it
+ * if they wish.
  */
+
 public class SecondFragment extends Fragment implements View.OnClickListener{
 
     View view;

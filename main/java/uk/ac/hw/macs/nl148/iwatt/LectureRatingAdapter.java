@@ -13,24 +13,32 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LectureRatingAdapter extends ArrayAdapter<LectureRateData> {
+/**
+ * Author: Neio Lucas
+ * File : About.java
+ * Platform : Android Operating System
+ * Date:  06/04/2016..
+ * Description: This class uses an Array adapter to display each item in a list view using a pojos(LectureRatingData) properties
+ */
+
+public class LectureRatingAdapter extends ArrayAdapter<LectureRatingData> {
 
     private AppCompatActivity activity;
-    private List<LectureRateData> movieList;
-    private ArrayList<LectureRateData> data = new ArrayList<>();
+    private List<LectureRatingData> movieList;
+    private ArrayList<LectureRatingData> data = new ArrayList<>();
 
-    public LectureRatingAdapter(AppCompatActivity context, int resource, List<LectureRateData> objects) {
+    public LectureRatingAdapter(AppCompatActivity context, int resource, List<LectureRatingData> objects) {
         super(context, resource, objects);
         this.activity = context;
         this.movieList = objects;
     }
 
     @Override
-    public LectureRateData getItem(int position) {
+    public LectureRatingData getItem(int position) {
         return movieList.get(position);
     }
 
-    public ArrayList<LectureRateData> getResults()
+    public ArrayList<LectureRatingData> getResults()
     {
         return data;
     }
@@ -63,7 +71,7 @@ public class LectureRatingAdapter extends ArrayAdapter<LectureRateData> {
         return new RatingBar.OnRatingBarChangeListener() {
             @Override
             public void onRatingChanged(RatingBar ratingBar, float v, boolean b) {
-                LectureRateData item = getItem(position);
+                LectureRatingData item = getItem(position);
                 item.setRating(v);
 
                     data.add(item);

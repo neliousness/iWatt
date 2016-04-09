@@ -31,6 +31,14 @@ import com.j256.ormlite.dao.RuntimeExceptionDao;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Author: Neio Lucas
+ * File : Programme.java
+ * Platform : Android Operating System
+ * Date:  04/03/2016.
+ * Description: This activity displays a list of mandatory and/or optional courses for the selected study year
+ */
+
 public class Programme extends AppCompatActivity  implements View.OnClickListener {
 
 

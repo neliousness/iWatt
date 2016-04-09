@@ -11,7 +11,11 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 /**
- * Created by mrnel on 25/02/2016.
+ * Author: Neio Lucas
+ * File : About.java
+ * Platform : Android Operating System
+ * Date: 04/04/2016
+ * Description: This fragment displays the About option seen in the navigation menu
  */
 public class About extends Fragment {
 
@@ -34,7 +38,7 @@ public class About extends Fragment {
         version.setTypeface(tf);
         iWatt.setTypeface(tf);
 
-        version.setText("Version 1.1.0");
+        version.setText("Version 1.1.2");
 
         return view;
     }

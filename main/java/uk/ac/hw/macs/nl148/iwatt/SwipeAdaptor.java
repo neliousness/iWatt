@@ -4,9 +4,15 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
+
 /**
- * Created by mrnel on 01/02/2016.
+ * Author: Neio Lucas
+ * File : SwipeAdaptor.java
+ * Platform : Android Operating System
+ * Date:  01/02/2016.
+ * Description: This class enables the swipe movement through the GettingStarted fragments
  */
+
 public class SwipeAdaptor extends FragmentStatePagerAdapter {
 
     public SwipeAdaptor(FragmentManager fm) {

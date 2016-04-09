@@ -41,6 +41,14 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 
+/**
+ * Author: Neio Lucas
+ * File : About.java
+ * Platform : Android Operating System
+ * Date:  06/04/2016..
+ * Description: This activity allows the user to rate his/her completeted courses.
+ */
+
 public class LectureRating extends AppCompatActivity implements View.OnClickListener{
 
     ListView listView;
@@ -54,8 +62,8 @@ public class LectureRating extends AppCompatActivity implements View.OnClickList
     private Multipart _multipart;
     DBHelper dbHelper;
     RuntimeExceptionDao<LocalCourse, Object> localCoursesDao = null;
-    ArrayList<LectureRateData> lecdata = new ArrayList<>();
-    ArrayList<LectureRateData> questions;
+    ArrayList<LectureRatingData> lecdata = new ArrayList<>();
+    ArrayList<LectureRatingData> questions;
 
 
     @Override
@@ -79,16 +87,16 @@ public class LectureRating extends AppCompatActivity implements View.OnClickList
         back = (Button) findViewById(R.id.rate_back);
         back.setOnClickListener(this);
 
-        questions.add(new LectureRateData("Level of effort you put into the course",0.0f));
-        questions.add(new LectureRateData("Level of skill/knowledge at start of course",0.0f));
-        questions.add(new LectureRateData("Level of skill/knowledge at end of course",0.0f));
-        questions.add(new LectureRateData("Level of skill/knowledge required to complete the course",0.0f));
-        questions.add(new LectureRateData("Contribution of course to your skill/knowledge",0.0f));
-        questions.add(new LectureRateData("I found the course intellectually challenging and stimulating",0.0f));
-        questions.add(new LectureRateData("I learnt and understood the subject materials in this course",0.0f));
-        questions.add(new LectureRateData("Instructor had a genuine interest in individual students",0.0f));
-        questions.add(new LectureRateData("Instructor was adequately accessible to students during office hours or after class",0.0f));
-        questions.add(new LectureRateData("instructor is enthusiastic about teaching this course",0.0f));
+        questions.add(new LectureRatingData("Level of effort you put into the course",0.0f));
+        questions.add(new LectureRatingData("Level of skill/knowledge at start of course",0.0f));
+        questions.add(new LectureRatingData("Level of skill/knowledge at end of course",0.0f));
+        questions.add(new LectureRatingData("Level of skill/knowledge required to complete the course",0.0f));
+        questions.add(new LectureRatingData("Contribution of course to your skill/knowledge",0.0f));
+        questions.add(new LectureRatingData("I found the course intellectually challenging and stimulating",0.0f));
+        questions.add(new LectureRatingData("I learnt and understood the subject materials in this course",0.0f));
+        questions.add(new LectureRatingData("Instructor had a genuine interest in individual students",0.0f));
+        questions.add(new LectureRatingData("Instructor was adequately accessible to students during office hours or after class",0.0f));
+        questions.add(new LectureRatingData("instructor is enthusiastic about teaching this course",0.0f));
 
 
 
@@ -127,10 +135,10 @@ public class LectureRating extends AppCompatActivity implements View.OnClickList
 
             if(!dropdown.getSelectedItem().toString().equals("[Select a course]")) {
 
-                ArrayList<LectureRateData> filteredArray = la.getResults();
+                ArrayList<LectureRatingData> filteredArray = la.getResults();
 
                 //using hashset to prevent duplicate data
-                HashSet<LectureRateData> set = new HashSet<LectureRateData>();
+                HashSet<LectureRatingData> set = new HashSet<LectureRatingData>();
                 set.addAll(filteredArray);
                 filteredArray.clear();
                 filteredArray.addAll(set);
@@ -149,7 +157,7 @@ public class LectureRating extends AppCompatActivity implements View.OnClickList
                         ".Please note that each question is rated out of 5." + "\n\n\n";
 
 
-                for (LectureRateData lecd : filteredArray) {
+                for (LectureRatingData lecd : filteredArray) {
                     message += lecd.getQuestion() + ".Rate: " + lecd.getRating() + "\n\n";
                 }
 

@@ -8,6 +8,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+/**
+ * Author: Neio Lucas
+ * File : CampusGuide.java
+ * Platform : Android Operating System
+ * Date: 02/04/2016
+ * Description: This activity displays buttons that enables the user to select other options
+ */
+
 public class CampusGuide extends AppCompatActivity implements View.OnClickListener{
 
 

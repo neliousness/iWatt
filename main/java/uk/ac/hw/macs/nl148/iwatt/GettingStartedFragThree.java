@@ -34,7 +34,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Created by mrnel on 01/02/2016.
+ * Author: Neio Lucas
+ * File : GettingStartedFragThree.java
+ * Platform : Android Operating System
+ * Date:  01/02/2016..
+ * Description: This fragment prompts the user to select a programme and a year of study for the selected
+ * programme
  */
 public class GettingStartedFragThree extends Fragment {
 

@@ -13,6 +13,15 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+/**
+ * Author: Neio Lucas
+ * File : TimeTableInit.java
+ * Platform : Android Operating System
+ * Date:  19/02/2016.
+ * Description: This activty displays the first page containing the days of the week for the TimeTable
+ * feature
+ */
+
 public class TimeTableInit extends AppCompatActivity implements View.OnClickListener{
 
     Button back;
@@ -55,6 +64,7 @@ public class TimeTableInit extends AppCompatActivity implements View.OnClickList
         wednsday.setTypeface(tf);
         thursday.setTypeface(tf);
         friday.setTypeface(tf);
+        back.setTypeface(tf);
 
         android.support.v7.widget.Toolbar toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.toolbar_timetable_init);
         toolbar.setOnClickListener(new View.OnClickListener() {

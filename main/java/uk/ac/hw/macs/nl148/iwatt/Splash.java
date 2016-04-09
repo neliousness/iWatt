@@ -17,9 +17,17 @@ import com.j256.ormlite.dao.RuntimeExceptionDao;
 import java.util.ArrayList;
 import java.util.List;
 
+
+
 /**
- * Created by mrnel on 31/01/2016.
+ * Author: Neio Lucas
+ * File : Splash.java
+ * Platform : Android Operating System
+ * Date:  31/01/2016.
+ * Description: This activity displays the applications logo when it is being initialized
  */
+
+
 public class Splash extends Activity {
 
   //  private ArrayList<String> list = new ArrayList<String>();
@@ -94,9 +102,9 @@ public class Splash extends Activity {
                       // courseDao.delete(c);
 
 
-                        /**
-                         * Checks to see if local student table is empty , if empty
-                         */
+
+                         // Checks to see if local student table is empty , if empty ,GettingStarted Activity starts
+
                         if(student.isEmpty()) {
 
                             Intent gettingStarted = new Intent(getBaseContext(), GettingStarted.class);

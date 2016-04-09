@@ -37,6 +37,14 @@ import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Author: Neio Lucas
+ * File : TimeTable.java
+ * Platform : Android Operating System
+ * Date:  19/02/2016.
+ * Description: This activity displays the users/studetns weekly time table
+ */
+
 public class TimeTable extends AppCompatActivity implements View.OnClickListener ,  AdapterView.OnItemClickListener{
 
     TextView location;
@@ -92,15 +100,16 @@ public class TimeTable extends AppCompatActivity implements View.OnClickListener
                 for (DataSnapshot progshot : dataSnapshot.getChildren()) {
                     TimeTableData timetable = progshot.getValue(TimeTableData.class);
 
-                    System.out.print("THIS IS AN ENTRY" + timetable.toString());
+
                     //filtering : by day of the week
                     if (timetable.getDow().contentEquals(dow)) {
 
                         for (LocalCourse z : local) {
+
                             //filtering : by course code
                             if (timetable.getCode().equals(z.getCode())) {
                                 data.add(timetable);
-                                Log.d("size in timetable", data.size() + "");
+                                //Log.d("size in timetable", data.size() + "");
                             }
 
                         }
@@ -144,6 +153,8 @@ public class TimeTable extends AppCompatActivity implements View.OnClickListener
                 listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                        //display popup menu on list item click
                         showOptions(parent, position);
                     }
                 });
@@ -155,13 +166,11 @@ public class TimeTable extends AppCompatActivity implements View.OnClickListener
 
             }
 
-            //pop up menu
+            //popup menu
             public void showOptions(final AdapterView<?> listv, final int position) {
                 final TimeTableData obj = (TimeTableData) listv.getAdapter().getItem(position);
                 builder = new AlertDialog.Builder(TimeTable.this);
                 TextView tx = new TextView(TimeTable.this);
-                Button directions = new Button(TimeTable.this);
-                Button info = new Button(TimeTable.this);
                 builder.setTitle(obj.getTitle());
                 String rm2 = "/" + obj.getRoom2();
                 if (rm2.equals("/N/A")) {
@@ -224,6 +233,7 @@ public class TimeTable extends AppCompatActivity implements View.OnClickListener
 
             }
 
+            //async task used to show schedule loading progress
             class ProcessCourses extends AsyncTask<String, String, String> {
 
                 /**
@@ -276,9 +286,6 @@ public class TimeTable extends AppCompatActivity implements View.OnClickListener
         });
 
         timetable.onDisconnect();
-
-
-
 
     }
 

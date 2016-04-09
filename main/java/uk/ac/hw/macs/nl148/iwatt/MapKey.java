@@ -10,9 +10,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+
+
 /**
- * Created by mrnel on 25/02/2016.
+ * Author: Neio Lucas
+ * File : MapKey.java
+ * Platform : Android Operating System
+ * Date:  25/02/2016.
+ * Description: This fragment displays the map key to the KnowGo feature.
  */
+
 public class MapKey extends Fragment {
 
     View view;

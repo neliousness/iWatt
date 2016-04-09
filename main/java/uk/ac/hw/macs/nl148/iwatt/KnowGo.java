@@ -48,8 +48,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * This shows how to create a simple activity with a map and a marker on the map.
+ * Author: Neio Lucas
+ * File : KnowGo.java
+ * Platform : Android Operating System
+ * Date:  7/02/2016.
+ * Description: This activity displays a map of the universities campus and pinpoints relevant locations.It also allows the
+ * user to search for buildings.
  */
+
 public class KnowGo extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnMyLocationButtonClickListener,
         ActivityCompat.OnRequestPermissionsResultCallback, View.OnClickListener,NavigationView.OnNavigationItemSelectedListener {
 
@@ -281,16 +287,16 @@ public class KnowGo extends AppCompatActivity implements OnMapReadyCallback, Goo
 
         mMap.addMarker(new MarkerOptions().position(EBS).title("Edinburgh Business School"));
 
-        mMap.addMarker(new MarkerOptions().position(BUS1).title("Bus Stop").
+        mMap.addMarker(new MarkerOptions().position(BUS1).title("Bus Stop 1").
                 icon(BitmapDescriptorFactory.fromResource(R.drawable.bus)));
 
-        mMap.addMarker(new MarkerOptions().position(BUS2).title("Bus Stop").
+        mMap.addMarker(new MarkerOptions().position(BUS2).title("Bus Stop 2").
                 icon(BitmapDescriptorFactory.fromResource(R.drawable.bus)));
 
-        mMap.addMarker(new MarkerOptions().position(BUS3).title("Bus Stop").
+        mMap.addMarker(new MarkerOptions().position(BUS3).title("Bus Stop 3").
                 icon(BitmapDescriptorFactory.fromResource(R.drawable.bus)));
 
-        mMap.addMarker(new MarkerOptions().position(BUS4).title("Bus Stop").
+        mMap.addMarker(new MarkerOptions().position(BUS4).title("Bus Stop 4").
                 icon(BitmapDescriptorFactory.fromResource(R.drawable.bus)));
 
         mMap.addMarker(new MarkerOptions().position(DAVINCI).title("da Vinci's").

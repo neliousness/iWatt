@@ -27,6 +27,14 @@ import org.apache.commons.collections4.IterableMap;
 import org.apache.commons.collections4.MapIterator;
 import org.apache.commons.collections4.map.HashedMap;
 
+/**
+ * Author: Neio Lucas
+ * File : ClassMap.java
+ * Platform : Android Operating System
+ * Date: 16/03/2016
+ * Description: This activity displays a map with the location of a user selected classroom
+ */
+
 public class ClassMap extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnMyLocationButtonClickListener,
         ActivityCompat.OnRequestPermissionsResultCallback, View.OnClickListener {
 

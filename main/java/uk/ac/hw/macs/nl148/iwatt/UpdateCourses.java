@@ -1,6 +1,5 @@
 package uk.ac.hw.macs.nl148.iwatt;
 
-import android.app.ListActivity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -27,10 +26,15 @@ import com.j256.ormlite.stmt.DeleteBuilder;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Objects;
-import java.util.Set;
+
+/**
+ * Author: Neio Lucas
+ * File : UpdateCourses.java
+ * Platform : Android Operating System
+ * Date:  15/03/2016.
+ * Description: This activity allows the user to manage thier electives
+ */
 
 public class UpdateCourses extends AppCompatActivity implements View.OnClickListener {
 
@@ -66,8 +70,6 @@ public class UpdateCourses extends AppCompatActivity implements View.OnClickList
         corlist = (ArrayList<Course>) getIntent().getSerializableExtra("courses");
 
 
-        // corlist = new ArrayList<>();
-
         android.support.v7.widget.Toolbar toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.toolbar_electives);
         toolbar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,8 +87,6 @@ public class UpdateCourses extends AppCompatActivity implements View.OnClickList
         toolbar.setTitle("");
         toolbar_title.setTypeface(tf);
         setSupportActionBar(toolbar);
-
-
 
         dbHelper = OpenHelperManager.getHelper(getApplicationContext(), DBHelper.class);
         localDao = dbHelper.getProgrammeExceptionDao();
@@ -140,13 +140,6 @@ public class UpdateCourses extends AppCompatActivity implements View.OnClickList
             build.show();
         }
 
-
-        //getListAdapter().get
-        //  CheckedTextView item =(CheckedTextView) getListView();
-        //CourseAdapter courseAdapter = new CourseAdapter(getApplicationContext(), corlist2);
-
-        //Initializing list view
-        //getListView().getAdapter().
         listView = (ListView) findViewById(android.R.id.list);
         listView.setChoiceMode(listView.CHOICE_MODE_MULTIPLE);
         listView.setTextFilterEnabled(true);
@@ -197,13 +190,10 @@ public class UpdateCourses extends AppCompatActivity implements View.OnClickList
             selectedItems.clear();
         }
 
-        //listView.setAdapter(courseAdapter);
-
-
     }
 
 
-    ArrayList<String> corlist3 = new ArrayList<>();
+   // ArrayList<String> corlist3 = new ArrayList<>();
 
     public void onListItemClick(ListView l, View v, int position, long id) {
 
@@ -217,12 +207,13 @@ public class UpdateCourses extends AppCompatActivity implements View.OnClickList
             selectedItems.remove(c);
         }
 
-        Log.d("here", selectedItems.toString());
+      //  Log.d("here", selectedItems.toString());
 
     }
 
     private void SaveSelections() {
-// save the selections in the shared preference in private mode for the user
+
+      // save the selections in the shared preference in private mode for the user
 
         SharedPreferences.Editor prefEditor = sharedpreferences.edit();
         String savedItems = getSavedItems();
@@ -294,8 +285,6 @@ public class UpdateCourses extends AppCompatActivity implements View.OnClickList
 
 
 
-
-
             for (int x = 0; x < selectedItems.size(); x++) {
 
                 for (Course z : corlist) {
@@ -314,10 +303,10 @@ public class UpdateCourses extends AppCompatActivity implements View.OnClickList
             List<LocalCourse> log_c = courseDao.queryForAll();
             // add elements to al, including duplicates
             System.out.println("these are the chosen electives " + log_c.toString());
-            Log.d("list", log_c.size() + "");
+            //Log.d("list", log_c.size() + "");
             //courseDao.delete(log_course);
-            Log.d("coursesss", log_course.toString());
-            System.out.println("These are the saved options" +getSavedItems());
+            //Log.d("coursesss", log_course.toString());
+            System.out.println("These are the saved options" + getSavedItems());
             OpenHelperManager.releaseHelper();
 
             Intent ii = new Intent(this, MainActivity.class);
@@ -333,8 +322,6 @@ public class UpdateCourses extends AppCompatActivity implements View.OnClickList
             Intent ii = new Intent(this, MainActivity.class);
             finish();
             startActivity(ii);
-
-
 
         }
 

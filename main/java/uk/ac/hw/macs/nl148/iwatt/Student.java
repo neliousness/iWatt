@@ -3,9 +3,16 @@ package uk.ac.hw.macs.nl148.iwatt;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
+
+
 /**
- * Created by mrnel on 04/02/2016.
+ * Author: Neio Lucas
+ * File : Student.java
+ * Platform : Android Operating System
+ * Date:  04/02/2016.
+ * Description: This class is a pojo. it stores user inputted properties
  */
+
 @DatabaseTable(tableName = "student")
 public class Student {
 
