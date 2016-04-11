@@ -344,9 +344,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         }
 
+        else if (id == R.id.watt_event) {
+
+         Toast.makeText(this,"WattEvents is unavailable",Toast.LENGTH_SHORT).show();
+
+        }
+
+        else if (id == R.id.watt_tips) {
+
+            Toast.makeText(this,"WattTips is unavailable",Toast.LENGTH_SHORT).show();
+
+        }
+
+        else if (id == R.id.watt_zone) {
+
+            Toast.makeText(this,"WattZone is unavailable",Toast.LENGTH_SHORT).show();
+
+        }
 
 
-    DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+
+
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }

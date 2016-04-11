@@ -1,28 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <group android:checkableBehavior="single">
+    <group>
+        <item android:checkableBehavior="single">
 
-        <item
-            android:id="@+id/nav_home"
-            android:icon="@drawable/ic_home"
+            <item
+                android:id="@+id/nav_home"
+                android:icon="@drawable/ic_home"
 
-            android:title="Home" />
-        <item
-            android:id="@+id/nav_first_layout"
-            android:icon="@drawable/ic_programme_setting"
-            android:title="Programme Settings" />
-        <item
-            android:id="@+id/nav_second_layout"
-            android:icon="@drawable/graduate22"
+                android:title="Home" />
 
-            android:title="Personal Settings" />
-        <item
-            android:id="@+id/nav_about"
-            android:icon="@drawable/ic_about"
 
-            android:title="About" />
 
+            <item android:title="Social">
+                <menu>
+                    <item android:title="WattZone"
+                        android:icon="@drawable/ic_watt_zone"
+                        android:id="@+id/watt_zone"/>
+
+                    <item android:title="WattTips"
+                        android:icon="@drawable/ic_watt_tips"
+                        android:id="@+id/watt_tips"/>
+
+                    <item android:title="WattEvents"
+                        android:icon="@drawable/ic_watt_event"
+                        android:id="@+id/watt_event"/>
+                </menu>
+            </item>
+
+            <item android:title="Settings">
+
+                <menu>
+
+                    <item
+                        android:id="@+id/nav_first_layout"
+                        android:icon="@drawable/ic_programme_setting"
+                        android:title="Programme Settings" />
+                    <item
+                        android:id="@+id/nav_second_layout"
+                        android:icon="@drawable/graduate22"
+
+                        android:title="Personal Settings" />
+
+                </menu>
+            </item>
+
+            <item android:title="iWatt">
+
+                <menu>
+
+                    <item
+                        android:id="@+id/nav_about"
+                        android:icon="@drawable/ic_about"
+
+                        android:title="About" />
+
+                </menu>
+            </item>
+
+        </item>
     </group>
 
 
