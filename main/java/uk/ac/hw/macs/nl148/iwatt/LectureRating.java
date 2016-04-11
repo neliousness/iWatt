@@ -166,7 +166,7 @@ public class LectureRating extends AppCompatActivity implements View.OnClickList
                 }
 
                 //adding rating to message
-                message += "Average Rating: " + averageRating(totalRating,filteredArray.size());
+                message += "Average Rating: " + averageRating(totalRating,questions.size());
 
                 message += " \n\n Kind Regards, \n The iWatt Team";
 

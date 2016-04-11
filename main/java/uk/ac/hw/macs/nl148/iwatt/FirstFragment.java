@@ -98,8 +98,9 @@ public class FirstFragment extends Fragment implements View.OnClickListener {
 
         if(back == v)
         {
-            Intent i = new Intent(getActivity(),MainActivity.class);
-            startActivity(i);
+            //Intent i = new Intent(getActivity(),MainActivity.class);
+            //startActivity(i);
+            getActivity().getFragmentManager().beginTransaction().remove(this).commit();
         }
 
     }
