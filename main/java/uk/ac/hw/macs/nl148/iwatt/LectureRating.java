@@ -121,6 +121,7 @@ public class LectureRating extends AppCompatActivity implements View.OnClickList
         }
 
         dropdown = (Spinner)findViewById(R.id.spinner);
+
         ArrayAdapter<String> spinneradapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, coursenames);
         dropdown.setAdapter(spinneradapter);
 
@@ -145,6 +146,7 @@ public class LectureRating extends AppCompatActivity implements View.OnClickList
 
                 //using forloop to get staff memeber
                 String staff = "";
+                float totalRating = 0.0f;
                 for (LocalCourse c : courses) {
                     if (c.getCoursename().equals(dropdown.getSelectedItem().toString())) {
                         staff = c.getCoordinator();
@@ -159,7 +161,12 @@ public class LectureRating extends AppCompatActivity implements View.OnClickList
 
                 for (LectureRatingData lecd : filteredArray) {
                     message += lecd.getQuestion() + ".\nRate: " + lecd.getRating() + "\n\n";
+                    totalRating += lecd.getRating();
+
                 }
+
+                //adding rating to message
+                message += "Average Rating: " + averageRating(totalRating,filteredArray.size());
 
                 message += " \n\n Kind Regards, \n The iWatt Team";
 
@@ -187,6 +194,14 @@ public class LectureRating extends AppCompatActivity implements View.OnClickList
             finish();
         }
 
+    }
+
+    //caluclate average rating
+    private String averageRating(float total , int number)
+    {
+        float avg = total/number;
+
+        return avg + "";
     }
 
     //sends email to respective staff memeber with feedback results

@@ -109,7 +109,7 @@ public class TimeTable extends AppCompatActivity implements View.OnClickListener
                             //filtering : by course code
                             if (timetable.getCode().equals(z.getCode())) {
                                 data.add(timetable);
-                                //Log.d("size in timetable", data.size() + "");
+                               //Log.d("showing in timetable", timetable.getTitle() + " " + timetable.getCode());
                             }
 
                         }

@@ -74,7 +74,7 @@ public class LectureRatingAdapter extends ArrayAdapter<LectureRatingData> {
                 LectureRatingData item = getItem(position);
                 item.setRating(v);
 
-                    data.add(item);
+                data.add(item);
 
                 Log.i("Adapter", "star: " + v + item.getQuestion());
             }
