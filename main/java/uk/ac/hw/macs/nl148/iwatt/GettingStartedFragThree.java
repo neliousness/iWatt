@@ -184,7 +184,7 @@ public class GettingStartedFragThree extends Fragment {
                                     builder.setTitle("Warning");
                                     builder.setMessage("\n" +
                                             "\nInformation on the programme you selected is unavailable.\n" +
-                                            "\n               Should you wish to proceed with the selected programme, the application may behave unexpectedly or crash ");
+                                            "\nShould you wish to proceed with the selected programme, the application may behave unexpectedly or crash ");
                                     builder.setView(tx);
                                     builder.setPositiveButton("OKAY, GOT IT!", new DialogInterface.OnClickListener() {
                                         @Override

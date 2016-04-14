@@ -1,6 +1,7 @@
 package uk.ac.hw.macs.nl148.iwatt;
 
 import android.app.FragmentManager;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
@@ -33,6 +35,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Author: Neio Lucas
@@ -66,6 +69,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     ArrayList<Course> corlist = new ArrayList<>();
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -86,6 +90,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         Firebase prog = new Firebase("https://glowing-heat-7374.firebaseio.com/");
         Firebase cor = new Firebase("https://testering.firebaseio.com/");
+        Firebase quotes = new Firebase("https://quoteshw.firebaseio.com/");
 
         prog.addValueEventListener(new ValueEventListener() {
             @Override
@@ -132,6 +137,66 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             @Override
             public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+        final ArrayList<Quote> quotelist = new ArrayList<>();
+        quotes.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                for (DataSnapshot progshot : dataSnapshot.getChildren()) {
+                    Quote quote = progshot.getValue(Quote.class);
+                    quotelist.add(quote);
+
+                }
+
+
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+        welcome_name = (Button) findViewById(R.id.welcome);
+
+        //on click , display random quotes
+        welcome_name.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                int maximum = 3228;
+                int minimum = 0;
+                Random rn = new Random();
+                int range = maximum - minimum + 1;
+                int randomNum =  rn.nextInt(range) + minimum;
+
+                String author = quotelist.get(randomNum).getAuthor();
+                String saying = quotelist.get(randomNum).getSaying();
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                TextView tx = new TextView(MainActivity.this);
+                builder.setTitle("Quote for your thoughts");
+                builder.setMessage("\n" +
+                            "'" +saying +"'"+
+                        "\n\n -" + author);
+                builder.setView(tx);
+                builder.setPositiveButton("THANKS!", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+
+                        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                        AlertDialog build = builder.create();
+                        build.cancel();
+
+                    }
+                });
+
+                AlertDialog build = builder.create();
+                build.show();
 
             }
         });
@@ -197,6 +262,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
 
+
+
     }
     public ArrayList<String> getProgrames()
     {
@@ -251,6 +318,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         {
             Toast.makeText(this,"This feature is unavailable", Toast.LENGTH_SHORT).show();
         }
+
 
 
     }

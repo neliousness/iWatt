@@ -283,7 +283,7 @@ public class UpdateCourses extends AppCompatActivity implements View.OnClickList
                 }
             }
 
-            
+
             if(selectedItems.size() == 0)
             {
                 //make array equal to
