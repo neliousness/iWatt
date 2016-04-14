@@ -1,10 +1,12 @@
 package uk.ac.hw.macs.nl148.iwatt;
 
 import android.app.Fragment;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -148,74 +150,110 @@ public class UpdateProgramme extends AppCompatActivity implements View.OnClickLi
 
 
 
-                        //check if user changed data. if not then display a message
+                    //check if user changed data. if not then display a message
                     if (programmes.get(0).getProgDesc().contentEquals(myCompleteTextView.getText().toString()) && (programmes.get(0).getYear() + "").contentEquals(year.getValue() + "")) {
                         Toast.makeText(this, "No changes to update", Toast.LENGTH_SHORT).show();
-                    } else if (Integer.parseInt(year.getValue() + "".toString()) > programmes.get(0).getLength()) {
-                        Toast.makeText(this, "Year entered exceeds course length. please enter a year smaller or equal " + programmes.get(0).getLength(), Toast.LENGTH_SHORT).show();
                     } else {
+                        if (Integer.parseInt(year.getValue() + "".toString()) > programmes.get(0).getLength()) {
+                            Toast.makeText(this, "Year entered exceeds course length. please enter a year smaller or equal " + programmes.get(0).getLength(), Toast.LENGTH_SHORT).show();
 
-                        try {
-                            // complete update transaction
-                            updateBuilder.update();
-                            Log.d("update course  status", lcc.toString());
-                        } catch (SQLException e) {
-                            e.printStackTrace();
                         }
+                        else{
+                            if (!myCompleteTextView.getText().toString().contentEquals("BSc Computer Systems") && !myCompleteTextView.getText().toString().contentEquals("BSc Computer Science") &&
+                                    !myCompleteTextView.getText().toString().contentEquals("BSc Information Systems") && !myCompleteTextView.getText().toString().contentEquals("MEng Software Engineering")) {
 
-                        //establish a connection to Firebase database
-                        Firebase cor = new Firebase("https://testering.firebaseio.com/");
-                        cor.addValueEventListener(new ValueEventListener() {
-
-                            DBHelper dbHelper2 = OpenHelperManager.getHelper(getApplicationContext(), DBHelper.class);
-                            RuntimeExceptionDao<LocalProgramme, Object> programmeDao = dbHelper2.getProgrammeExceptionDao();
-                            RuntimeExceptionDao<LocalCourse, Object> courseDao = dbHelper2.getCourseExceptionDao();
-
-                            List<LocalProgramme> locall = programmeDao.queryForAll();
-
-                            @Override
-                            public void onDataChange(DataSnapshot dataSnapshot) {
-
-
-                                List<LocalCourse> log_delete = courseDao.queryForAll();
-
-                                //delete courses from old year
-                                courseDao.delete(log_delete);
-                                for (DataSnapshot progshot : dataSnapshot.getChildren()) {
-                                    Course c = progshot.getValue(Course.class);
+                                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                                TextView tx = new TextView(this);
+                                builder.setTitle("Error");
+                                builder.setMessage("\n" +
+                                        "\nInformation on the programme you selected is unavailable.\n" +
+                                        "\nPlease select a programme provided by the MACS department. ");
+                                builder.setView(tx);
+                                builder.setPositiveButton("OKAY, GOT IT!", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
 
 
-                                    //check if courses correspond to programme year
-                                    if (locall.get(0).getYear() == c.getYear()) {
+                                        AlertDialog.Builder builder = new AlertDialog.Builder(UpdateProgramme.this);
+                                        AlertDialog build = builder.create();
+                                        build.cancel();
 
-                                        //if not mandatory , course is added automatically as a subject
-                                        if (c.getMandatory().equals("yes")) {
+                                    }
+                                });
+
+                                AlertDialog build = builder.create();
+                                build.show();
+
+                            } else  {
+
+                                try {
+                                    // complete update transaction
+                                    updateBuilder.update();
+                                    Log.d("update course  status", lcc.toString());
+                                } catch (SQLException e) {
+                                    e.printStackTrace();
+                                }
+
+                                //establish a connection to Firebase database
+                                Firebase cor = new Firebase("https://testering.firebaseio.com/");
+                                cor.addValueEventListener(new ValueEventListener() {
+
+                                    DBHelper dbHelper2 = OpenHelperManager.getHelper(getApplicationContext(), DBHelper.class);
+                                    RuntimeExceptionDao<LocalProgramme, Object> programmeDao = dbHelper2.getProgrammeExceptionDao();
+                                    RuntimeExceptionDao<LocalCourse, Object> courseDao = dbHelper2.getCourseExceptionDao();
+
+                                    List<LocalProgramme> locall = programmeDao.queryForAll();
+
+                                    @Override
+                                    public void onDataChange(DataSnapshot dataSnapshot) {
 
 
-                                            courseDao.createIfNotExists(new LocalCourse(c.getCode(), c.getYear(), c.getCoursename(), c.getCoordinator(), c.getMandatory()));
+                                        List<LocalCourse> log_delete = courseDao.queryForAll();
+
+                                        //delete courses from old year
+                                        courseDao.delete(log_delete);
+                                        for (DataSnapshot progshot : dataSnapshot.getChildren()) {
+                                            Course c = progshot.getValue(Course.class);
+
+
+                                            //check if courses correspond to programme year
+                                            if (locall.get(0).getYear() == c.getYear()) {
+
+                                                //if not mandatory , course is added automatically as a subject
+                                                if (c.getMandatory().equals("yes")) {
+
+
+                                                    courseDao.createIfNotExists(new LocalCourse(c.getCode(), c.getYear(), c.getCoursename(), c.getCoordinator(), c.getMandatory()));
+                                                }
+                                            }
+
                                         }
+                                        //List<LocalCourse> log_course = courseDao.queryForAll();
+                                        //Log.d("mandatory courses", log_course.toString());
                                     }
 
-                                }
-                                //List<LocalCourse> log_course = courseDao.queryForAll();
-                                //Log.d("mandatory courses", log_course.toString());
+                                    @Override
+                                    public void onCancelled(FirebaseError firebaseError) {
+
+                                    }
+
+                                });
+
+                                Intent i = new Intent(this, MainActivity.class);
+                                finish();
+                                startActivity(i);
+                                OpenHelperManager.releaseHelper();
+
+                                Toast.makeText(this, "Programme Information updated!", Toast.LENGTH_SHORT).show();
                             }
-
-                            @Override
-                            public void onCancelled(FirebaseError firebaseError) {
-
-                            }
-
-                        });
-
-                        Intent i = new Intent(this, MainActivity.class);
-                        finish();
-                        startActivity(i);
-                        OpenHelperManager.releaseHelper();
-
-                        Toast.makeText(this, "Programme Information updated!", Toast.LENGTH_SHORT).show();
+                        }
                     }
+
                 }
+
+
+
+
 
             } catch (Exception e)
             {

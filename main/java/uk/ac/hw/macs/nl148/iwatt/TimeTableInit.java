@@ -1,17 +1,28 @@
 package uk.ac.hw.macs.nl148.iwatt;
 
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.j256.ormlite.android.apptools.OpenHelperManager;
+import com.j256.ormlite.dao.RuntimeExceptionDao;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 /**
  * Author: Neio Lucas
@@ -22,7 +33,7 @@ import java.util.Calendar;
  * feature
  */
 
-public class TimeTableInit extends AppCompatActivity implements View.OnClickListener{
+public class TimeTableInit extends AppCompatActivity implements View.OnClickListener {
 
     Button back;
     Button monday;
@@ -72,7 +83,7 @@ public class TimeTableInit extends AppCompatActivity implements View.OnClickList
             public void onClick(View v) {
 
                 TimeTableInit.this.finish();
-                Intent i = new Intent(TimeTableInit.this,MainActivity.class);
+                Intent i = new Intent(TimeTableInit.this, MainActivity.class);
                 TimeTableInit.this.startActivity(i);
             }
         });
@@ -82,6 +93,7 @@ public class TimeTableInit extends AppCompatActivity implements View.OnClickList
         toolbar_title.setTypeface(tf);
 
         setSupportActionBar(toolbar);
+
 
     }
 
@@ -140,4 +152,7 @@ public class TimeTableInit extends AppCompatActivity implements View.OnClickList
         }
 
     }
+
+
+
 }

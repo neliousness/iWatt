@@ -193,7 +193,7 @@ public class UpdateCourses extends AppCompatActivity implements View.OnClickList
     }
 
 
-   // ArrayList<String> corlist3 = new ArrayList<>();
+    // ArrayList<String> corlist3 = new ArrayList<>();
 
     public void onListItemClick(ListView l, View v, int position, long id) {
 
@@ -207,13 +207,13 @@ public class UpdateCourses extends AppCompatActivity implements View.OnClickList
             selectedItems.remove(c);
         }
 
-      //  Log.d("here", selectedItems.toString());
+        //  Log.d("here", selectedItems.toString());
 
     }
 
     private void SaveSelections() {
 
-      // save the selections in the shared preference in private mode for the user
+        // save the selections in the shared preference in private mode for the user
 
         SharedPreferences.Editor prefEditor = sharedpreferences.edit();
         String savedItems = getSavedItems();
@@ -283,7 +283,11 @@ public class UpdateCourses extends AppCompatActivity implements View.OnClickList
                 }
             }
 
-
+            
+            if(selectedItems.size() == 0)
+            {
+                //make array equal to
+            }
 
             for (int x = 0; x < selectedItems.size(); x++) {
 

@@ -1,14 +1,21 @@
 package uk.ac.hw.macs.nl148.iwatt;
 
+import android.app.FragmentManager;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
+import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -89,7 +96,7 @@ public class LectureRating extends AppCompatActivity implements View.OnClickList
 
         questions.add(new LectureRatingData("Level of effort you put into the course",0.0f));
         questions.add(new LectureRatingData("Level of skill/knowledge at start of course",0.0f));
-        questions.add(new LectureRatingData("Level of skill/knowledge at end of course",0.0f));
+        questions.add(new LectureRatingData("Level of skill/knowledge at end of course", 0.0f));
         questions.add(new LectureRatingData("Level of skill/knowledge required to complete the course",0.0f));
         questions.add(new LectureRatingData("Contribution of course to your skill/knowledge",0.0f));
         questions.add(new LectureRatingData("I found the course intellectually challenging and stimulating",0.0f));
@@ -124,6 +131,8 @@ public class LectureRating extends AppCompatActivity implements View.OnClickList
 
         ArrayAdapter<String> spinneradapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, coursenames);
         dropdown.setAdapter(spinneradapter);
+
+
 
 
     }
@@ -313,4 +322,7 @@ public class LectureRating extends AppCompatActivity implements View.OnClickList
     protected void onDestroy() {
         super.onDestroy();
     }
+
+
+
 }

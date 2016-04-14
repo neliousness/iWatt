@@ -1,0 +1,72 @@
+#
+# generated on 2016/03/16 02:37:18
+#
+# --table-start--
+dataClass=uk.ac.hw.macs.nl148.iwatt.Student
+tableName=student
+# --table-fields-start--
+# --field-start--
+fieldName=id
+generatedId=true
+# --field-end--
+# --field-start--
+fieldName=name
+# --field-end--
+# --field-start--
+fieldName=surname
+# --field-end--
+# --field-start--
+fieldName=username
+# --field-end--
+# --table-fields-end--
+# --table-end--
+#################################
+# --table-start--
+dataClass=uk.ac.hw.macs.nl148.iwatt.LocalProgramme
+tableName=localprogramme
+# --table-fields-start--
+# --field-start--
+fieldName=id
+generatedId=true
+# --field-end--
+# --field-start--
+fieldName=progCode
+# --field-end--
+# --field-start--
+fieldName=progDesc
+# --field-end--
+# --field-start--
+fieldName=length
+# --field-end--
+# --field-start--
+fieldName=year
+# --field-end--
+# --table-fields-end--
+# --table-end--
+#################################
+# --table-start--
+dataClass=uk.ac.hw.macs.nl148.iwatt.LocalCourse
+tableName=localcourse
+# --table-fields-start--
+# --field-start--
+fieldName=id
+generatedId=true
+# --field-end--
+# --field-start--
+fieldName=code
+# --field-end--
+# --field-start--
+fieldName=coursename
+# --field-end--
+# --field-start--
+fieldName=coordinator
+# --field-end--
+# --field-start--
+fieldName=mandatory
+# --field-end--
+# --field-start--
+fieldName=year
+# --field-end--
+# --table-fields-end--
+# --table-end--
+#################################

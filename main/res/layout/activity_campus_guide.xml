@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/backg"
+    android:id="@+id/content_campus_guide"
     tools:context="uk.ac.hw.macs.nl148.iwatt.CampusGuide">
 
 

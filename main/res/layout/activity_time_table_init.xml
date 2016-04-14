@@ -9,9 +9,12 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:background="@drawable/backg"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/content_timetable_init"
     android:layout_marginTop="-10dp"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="uk.ac.hw.macs.nl148.freshersapp.TimeTableInit">
+
+
 
     <Button
         android:layout_width="120dp"
@@ -42,6 +45,7 @@
         android:layout_height="40dp"
         android:background="@color/colorPrimary"
         android:text="Wednesday"
+        style="?android:attr/borderlessButtonStyle"
         android:textColor="@color/common_google_signin_btn_text_dark_default"
         android:id="@+id/wednesday"
         android:layout_marginBottom="35dp"
@@ -53,6 +57,7 @@
         android:layout_height="40dp"
         android:background="@color/colorPrimary"
         android:text="Tuesday"
+        style="?android:attr/borderlessButtonStyle"
         android:textColor="@color/common_google_signin_btn_text_dark_default"
         android:id="@+id/tuesday"
         android:layout_marginBottom="27dp"
@@ -64,6 +69,7 @@
         android:layout_height="40dp"
         android:background="@color/colorPrimary"
         android:text="Monday"
+        style="?android:attr/borderlessButtonStyle"
         android:textColor="@color/common_google_signin_btn_text_dark_default"
         android:id="@+id/monday"
         android:layout_marginBottom="32dp"

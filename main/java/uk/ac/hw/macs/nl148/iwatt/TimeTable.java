@@ -3,6 +3,7 @@ package uk.ac.hw.macs.nl148.iwatt;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.app.FragmentManager;
 import android.app.ListActivity;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -12,10 +13,16 @@ import android.content.pm.ActivityInfo;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -45,7 +52,7 @@ import java.util.List;
  * Description: This activity displays the users/studetns weekly time table
  */
 
-public class TimeTable extends AppCompatActivity implements View.OnClickListener ,  AdapterView.OnItemClickListener{
+public class TimeTable extends AppCompatActivity implements View.OnClickListener ,  AdapterView.OnItemClickListener {
 
     TextView location;
     final Context context = this;
@@ -73,6 +80,8 @@ public class TimeTable extends AppCompatActivity implements View.OnClickListener
         toolbar_title.setTypeface(tf);
 
         setSupportActionBar(toolbar);
+
+
 
 
 
@@ -306,4 +315,7 @@ public class TimeTable extends AppCompatActivity implements View.OnClickListener
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
     }
+
+
+
 }

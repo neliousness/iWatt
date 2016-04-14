@@ -9,6 +9,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="uk.ac.hw.macs.nl148.iwatt.LectureRating"
     android:background="@drawable/backg"
+    android:id="@+id/content_lecture_rate"
     >
 
     <TextView

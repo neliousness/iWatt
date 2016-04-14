@@ -1,22 +1,26 @@
 package uk.ac.hw.macs.nl148.iwatt;
 
+import android.app.FragmentManager;
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,7 +28,6 @@ import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
-import com.firebase.client.utilities.Utilities;
 import com.j256.ormlite.android.apptools.OpenHelperManager;
 import com.j256.ormlite.dao.RuntimeExceptionDao;
 
@@ -74,6 +77,7 @@ public class Programme extends AppCompatActivity  implements View.OnClickListene
         toolbar_title.setTypeface(tf);
         setSupportActionBar(toolbar);
 
+
         Firebase course = new Firebase("https://testering.firebaseio.com/");
 
         course.addValueEventListener(new ValueEventListener() {
@@ -90,7 +94,9 @@ public class Programme extends AppCompatActivity  implements View.OnClickListene
                 List<LocalProgramme> programme = localDao.queryForAll();
                 List<LocalCourse> localCourses = courseDao.queryForAll();
 
-                //studentDao.delete(student);
+
+
+                //studentDao.delete(student);z
                 // OpenHelperManager.releaseHelper();
 
                 for (DataSnapshot progshot : dataSnapshot.getChildren()) {
@@ -99,13 +105,12 @@ public class Programme extends AppCompatActivity  implements View.OnClickListene
                     //filtering by: year of study
                     if (course.getYear() == programme.get(0).getYear()) {
 
-                        for(LocalCourse l : localCourses) {
+                        for (LocalCourse l : localCourses) {
 
                             //filtering by courses within programme
-                            if(course.getCode().contentEquals(l.getCode())) {
+                            if (course.getCode().contentEquals(l.getCode())) {
                                 c.add(course);
                                 list.add(course.getCoursename());
-
 
 
                             }
@@ -183,9 +188,9 @@ public class Programme extends AppCompatActivity  implements View.OnClickListene
                         aims.setText(c.get(0).getAims());
                         syllabus.setText(c.get(0).getSyllabus());
                         year.setText("Year :" + c.get(0).getYear() + "");*/
-                        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(Programme.this, android.R.layout.simple_list_item_1, list){
+                        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(Programme.this, android.R.layout.simple_list_item_1, list) {
                             @Override
-                            public View getView(int position, View convertView, ViewGroup parent){
+                            public View getView(int position, View convertView, ViewGroup parent) {
                                 // Get the Item from ListView
                                 View view = super.getView(position, convertView, parent);
 
@@ -193,11 +198,9 @@ public class Programme extends AppCompatActivity  implements View.OnClickListene
                                 TextView tv = (TextView) view.findViewById(android.R.id.text1);
 
                                 String names = (String) listView.getAdapter().getItem(position);
-                                for(Course cx : c)
-                                {
+                                for (Course cx : c) {
 
-                                    if (cx.getMandatory().equals("no") && names.equals(cx.getCoursename()))
-                                    {
+                                    if (cx.getMandatory().equals("no") && names.equals(cx.getCoursename())) {
                                         // Set the text color of manadatory courses to Yellow
                                         tv.setTextColor(Color.YELLOW);
                                     }
@@ -207,8 +210,6 @@ public class Programme extends AppCompatActivity  implements View.OnClickListene
                                 return view;
                             }
                         };
-
-
 
 
                         back.setTypeface(tf);
@@ -237,12 +238,12 @@ public class Programme extends AppCompatActivity  implements View.OnClickListene
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                String item = (String)listView.getAdapter().getItem(position);
+                String item = (String) listView.getAdapter().getItem(position);
 
-                Log.d("test",item);
-                Intent i = new Intent(getApplication() , ProgrammeInfo.class);
-                i.putExtra("course",item);
-                i.putExtra("courses",c);
+                Log.d("test", item);
+                Intent i = new Intent(getApplication(), ProgrammeInfo.class);
+                i.putExtra("course", item);
+                i.putExtra("courses", c);
                 startActivity(i);
             }
         });
@@ -273,4 +274,5 @@ public class Programme extends AppCompatActivity  implements View.OnClickListene
             finish();
         }
     }
+
 }

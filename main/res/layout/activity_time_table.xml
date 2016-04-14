@@ -8,8 +8,9 @@
     android:layout_height="match_parent"
     tools:context="uk.ac.hw.macs.nl148.freshersapp.TimeTable"
     android:orientation="horizontal"
+    android:id="@+id/content_timetable"
     >
-
+z
     <ListView
         android:id="@+id/timetable_list"
         android:layout_width="match_parent"

@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     DBHelper dbHelper;
     Button timetable_button;
     Button knowgo_button;
-    Button settings_button;
+    Button welcome_name;
     Button programme_button;
     Button campus_guide_button;
     Button lec_rate;
@@ -150,7 +150,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
        try {
            dbHelper = OpenHelperManager.getHelper(this, DBHelper.class);
 
-           settings_button = (Button) findViewById(R.id.welcome);
+           welcome_name = (Button) findViewById(R.id.welcome);
 
 
            studentDao = dbHelper.getStudentExceptionDao();
@@ -168,9 +168,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
            //Toast.makeText(this,"list size" + student.size(),Toast.LENGTH_SHORT).show();
            //studentDao.delete(student);
-           settings_button.setText("Hi " + name);
+           welcome_name.setText("Hi " + name);
            Typeface name_tf = Typeface.createFromAsset(getAssets(),"Simple tfb.ttf");
-           settings_button.setTypeface(name_tf);
+           welcome_name.setTypeface(name_tf);
           // OpenHelperManager.releaseHelper();
        }catch (Exception e)
        {
