@@ -208,10 +208,10 @@ public class UpdateProgramme extends AppCompatActivity implements View.OnClickLi
                                     public void onDataChange(DataSnapshot dataSnapshot) {
 
 
-                                        List<LocalCourse> log_delete = courseDao.queryForAll();
+                                        List<LocalCourse> old_year = courseDao.queryForAll();
 
                                         //delete courses from old year
-                                        courseDao.delete(log_delete);
+                                        courseDao.delete(old_year);
                                         for (DataSnapshot progshot : dataSnapshot.getChildren()) {
                                             Course c = progshot.getValue(Course.class);
 

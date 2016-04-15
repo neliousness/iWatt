@@ -167,37 +167,96 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onClick(View v) {
 
-                int maximum = 3228;
-                int minimum = 0;
-                Random rn = new Random();
-                int range = maximum - minimum + 1;
-                int randomNum =  rn.nextInt(range) + minimum;
 
-                String author = quotelist.get(randomNum).getAuthor();
-                String saying = quotelist.get(randomNum).getSaying();
+                //check if list of quotes is empty or smaller than X value
+                if (quotelist.size() == 0 || quotelist.size() < 3000)
+                {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                    TextView tx = new TextView(MainActivity.this);
+                    builder.setTitle("Error");
+                    builder.setMessage("\n" +
+                            "" + "List of quotes did not finish loading" + "" +
+                            "\n\n Please wait 10 seconds then try again.");
+                    builder.setView(tx);
+                    builder.setPositiveButton("OKAY", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
 
-                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-                TextView tx = new TextView(MainActivity.this);
-                builder.setTitle("Quote for your thoughts");
-                builder.setMessage("\n" +
-                            "'" +saying +"'"+
-                        "\n\n -" + author);
-                builder.setView(tx);
-                builder.setPositiveButton("THANKS!", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
 
+                            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                            AlertDialog build = builder.create();
+                            build.cancel();
+
+                        }
+                    });
+
+                    AlertDialog build = builder.create();
+                    build.setCanceledOnTouchOutside(false);
+                    build.show();
+
+                } else {
+
+
+                    try {
+
+                        int maximum = 3228;
+                        int minimum = 0;
+                        Random rn = new Random();
+                        int range = maximum - minimum + 1;
+                        int randomNum = rn.nextInt(range) + minimum;
+
+                        String author = quotelist.get(randomNum).getAuthor();
+                        String saying = quotelist.get(randomNum).getSaying();
 
                         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                        TextView tx = new TextView(MainActivity.this);
+                        builder.setTitle("Quote for your thoughts");
+                        builder.setMessage("\n" +
+                                "'" + saying + "'" +
+                                "\n\n -" + author);
+                        builder.setView(tx);
+                        builder.setPositiveButton("THANKS!", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+
+                                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                                AlertDialog build = builder.create();
+                                build.cancel();
+
+                            }
+                        });
+
                         AlertDialog build = builder.create();
-                        build.cancel();
+                        build.setCanceledOnTouchOutside(false);
+                        build.show();
+                    } catch (Exception e) {
 
+                        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                        TextView tx = new TextView(MainActivity.this);
+                        builder.setTitle("Error");
+                        builder.setMessage("\n" +
+                                "'" + "List of quotes did not load properly" + "'" +
+                                "\n\n Please restart the application to load it.");
+                        builder.setView(tx);
+                        builder.setPositiveButton("OKAY", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+
+                                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                                AlertDialog build = builder.create();
+                                build.cancel();
+
+                            }
+                        });
+
+                        AlertDialog build = builder.create();
+                        build.setCanceledOnTouchOutside(false);
+                        build.show();
                     }
-                });
 
-                AlertDialog build = builder.create();
-                build.show();
-
+                }
             }
         });
 
@@ -216,12 +275,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
            dbHelper = OpenHelperManager.getHelper(this, DBHelper.class);
 
            welcome_name = (Button) findViewById(R.id.welcome);
-
-
            studentDao = dbHelper.getStudentExceptionDao();
-
-
-
            List<Student> students = studentDao.queryForAll();
 
 
