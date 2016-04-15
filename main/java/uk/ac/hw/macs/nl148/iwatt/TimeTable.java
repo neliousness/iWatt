@@ -125,7 +125,7 @@ public class TimeTable extends AppCompatActivity implements View.OnClickListener
 
                     }
 
-                    // OpenHelperManager.releaseHelper();
+                    //OpenHelperManager.releaseHelper();
                 }
 
                 if (data.size() == 0) {

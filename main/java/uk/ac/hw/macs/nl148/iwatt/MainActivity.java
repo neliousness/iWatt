@@ -175,8 +175,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     TextView tx = new TextView(MainActivity.this);
                     builder.setTitle("Error");
                     builder.setMessage("\n" +
-                            "" + "List of quotes did not finish loading" + "" +
-                            "\n\n Please wait 10 seconds then try again.");
+                            "" + "List of quotes did not finish loading." + "" +
+                            "\n\nPlease wait 10 seconds then try again.");
                     builder.setView(tx);
                     builder.setPositiveButton("OKAY", new DialogInterface.OnClickListener() {
                         @Override

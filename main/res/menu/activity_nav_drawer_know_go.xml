@@ -16,7 +16,7 @@
             android:id="@+id/nav_map_key"
             android:icon="@drawable/ic_map_key"
 
-            android:title="Map Key" />
+            android:title="Legend" />
 
     </group>
 
