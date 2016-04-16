@@ -34,6 +34,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
 
@@ -204,6 +205,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         Random rn = new Random();
                         int range = maximum - minimum + 1;
                         int randomNum = rn.nextInt(range) + minimum;
+
+                        //removes duplicate quote objects if any
+                        Log.d("quote list before",quotelist.size()+ "");
+                        HashSet<Quote> set = new HashSet<Quote>();
+                        set.addAll(quotelist);
+                        quotelist.clear();
+                        quotelist.addAll(set);
+
+                        Log.d("quote list after",quotelist.size()+ "");
 
                         String author = quotelist.get(randomNum).getAuthor();
                         String saying = quotelist.get(randomNum).getSaying();

@@ -147,7 +147,7 @@ public class LectureRating extends AppCompatActivity implements View.OnClickList
 
                 ArrayList<LectureRatingData> filteredArray = la.getResults();
 
-                //using hashset to prevent duplicate data
+                //using hashset to prevent duplicates in system
                 HashSet<LectureRatingData> set = new HashSet<LectureRatingData>();
                 set.addAll(filteredArray);
                 filteredArray.clear();

@@ -20,6 +20,8 @@
             android:background="?attr/colorPrimary"
             app:popupTheme="@style/AppTheme.PopupOverlay" >
 
+
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -28,6 +30,16 @@
                 android:textColor="#ffffff"
                 android:layout_gravity="left"
                 android:id="@+id/toolbar_title4" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="dow"
+                android:textSize="20dp"
+                android:textColor="#ffffff"
+                android:id="@+id/toolbar_dow"
+
+                />
 
         </android.support.v7.widget.Toolbar>
 

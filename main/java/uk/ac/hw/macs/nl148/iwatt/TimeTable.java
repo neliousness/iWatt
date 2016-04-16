@@ -82,6 +82,31 @@ public class TimeTable extends AppCompatActivity implements View.OnClickListener
         setSupportActionBar(toolbar);
 
 
+        TextView toolbar_dow = (TextView) toolbar.findViewById(R.id.toolbar_dow);
+        toolbar_dow.setTypeface(tf);
+        String dow = getIntent().getStringExtra("dow");
+
+        //adds day of the week to toolbar
+        if(dow.contentEquals("mon"))
+        {
+            toolbar_dow.setText(" :Monday");
+        }
+        else if(dow.contentEquals("tue"))
+        {
+            toolbar_dow.setText(" :Tuesday");
+        }
+        else if(dow.contentEquals("wed"))
+        {
+            toolbar_dow.setText(" :Wednesday");
+        }
+        else if(dow.contentEquals("thurs"))
+        {
+            toolbar_dow.setText(" :Thursday");
+        }
+        else if(dow.contentEquals("fri"))
+        {
+            toolbar_dow.setText(" :Friday");
+        }
 
 
 
@@ -118,7 +143,7 @@ public class TimeTable extends AppCompatActivity implements View.OnClickListener
                             //filtering : by course code
                             if (timetable.getCode().equals(z.getCode())) {
                                 data.add(timetable);
-                               //Log.d("showing in timetable", timetable.getTitle() + " " + timetable.getCode());
+                                //Log.d("showing in timetable", timetable.getTitle() + " " + timetable.getCode());
                             }
 
                         }
