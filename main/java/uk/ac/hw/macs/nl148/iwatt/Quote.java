@@ -1,8 +1,13 @@
 package uk.ac.hw.macs.nl148.iwatt;
 
 /**
- * Created by mrnel on 14/04/2016.
+ * Author: Neio Lucas
+ * File : Quote.java
+ * Platform : Android Operating System
+ * Date:  04/02/2016.
+ * Description: This class is a pojo. it stores data from an online database
  */
+
 public class Quote {
 
     private String author;

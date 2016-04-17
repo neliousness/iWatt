@@ -38,7 +38,7 @@ public class About extends Fragment {
         version.setTypeface(tf);
         iWatt.setTypeface(tf);
 
-        version.setText("Version 1.3.5");
+        version.setText("Version 1.3.6");
 
         return view;
     }

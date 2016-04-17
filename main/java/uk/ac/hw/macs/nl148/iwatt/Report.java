@@ -42,7 +42,11 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 
 /**
- * Created by mrnel on 17/04/2016.
+ * Author: Neio Lucas
+ * File : Report.java
+ * Platform : Android Operating System
+ * Date: 17/04/2016
+ * Description: This fragment displays the Report feature seen in the navigation menu
  */
 public class Report extends Fragment implements View.OnClickListener {
 
@@ -107,14 +111,14 @@ public class Report extends Fragment implements View.OnClickListener {
         if(submit == v)
         {
             //check if email is valid
-            if(!email.getText().toString().contains("@") && !email.getText().toString().contains(".") )
+            if(!email.getText().toString().contains("@") || !email.getText().toString().contains(".") )
             {
                 AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                 TextView tx = new TextView(getActivity());
                 builder.setTitle("Report");
                 builder.setMessage("\n" +
                         "\nEmail address is invalid.\n" +
-                        "\n\n" +"Go to Personal Settings to change it.");
+                        "\n\n" +"Please go to Personal Settings to change it.");
                 builder.setView(tx);
                 builder.setPositiveButton("OKAY", new DialogInterface.OnClickListener() {
                     @Override
@@ -198,7 +202,8 @@ public class Report extends Fragment implements View.OnClickListener {
 
                         message += "\n\n"+"Ticket ID :" + ticket +"\n"
                                 +"Type :" + dropdown.getSelectedItem().toString() + "\n"
-                                + "Sender" + email.getText();
+                                + "Sender " + name.getText() + "\n"
+                                + "Sender " + email.getText();
 
                         sendMail("mrneliolucas@gmail.com", dropdown.getSelectedItem().toString() +" :"+ticket,message);
                     }
@@ -289,7 +294,7 @@ public class Report extends Fragment implements View.OnClickListener {
             TextView tx = new TextView(getActivity());
             builder.setTitle("Report");
             builder.setMessage("\n" +
-                    "\nThank you.\n" +
+                    "\nThank you.We will get back to you as soon as possible.\n" +
                     "\n");
             builder.setView(tx);
             builder.setPositiveButton("OKAY", new DialogInterface.OnClickListener() {

@@ -463,7 +463,7 @@ public class KnowGo extends AppCompatActivity implements OnMapReadyCallback, Goo
                     .replace(R.id.content_frame, new SecondFragment())
                     .commit();*/
 
-            Toast.makeText(this, "preferences are unavailable",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Preferences are unavailable",Toast.LENGTH_SHORT).show();
 
         }
         else if (id == R.id.nav_map_key) {
