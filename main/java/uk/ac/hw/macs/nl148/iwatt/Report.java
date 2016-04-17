@@ -161,11 +161,12 @@ public class Report extends Fragment implements View.OnClickListener {
                     //check if message box is empty
                     if(report.getText().toString().equals("") || report.getText().toString().equals(null) )
                     {
+
                         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                         TextView tx = new TextView(getActivity());
                         builder.setTitle("Report");
                         builder.setMessage("\n" +
-                                "\nPlease insert text before you submit.\n" +
+                                "\nPlease write your "+dropdown.getSelectedItem().toString().toLowerCase()+" before you submit.\n" +
                                 "\n");
                         builder.setView(tx);
                         builder.setPositiveButton("OKAY", new DialogInterface.OnClickListener() {
