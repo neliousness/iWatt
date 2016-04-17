@@ -187,7 +187,7 @@ public class LectureRating extends AppCompatActivity implements View.OnClickList
                     Toast.makeText(this, "Please rate all questions", Toast.LENGTH_SHORT).show();
                 } else {
                     Log.d("status", "all is done");
-                    sendMail("nl148@hw.ac.uk", "Answered Evaluation Form for " + dropdown.getSelectedItem().toString(), message);
+                    sendMail("mrneliolucas@gmail.com", "Answered Evaluation Form for " + dropdown.getSelectedItem().toString(), message);
                 }
             }
             else

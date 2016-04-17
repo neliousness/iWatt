@@ -55,6 +55,12 @@
 
                         android:title="About" />
 
+                    <item
+                        android:id="@+id/nav_report"
+                        android:icon="@drawable/ic_report"
+
+                        android:title="Report" />
+
                 </menu>
             </item>
 

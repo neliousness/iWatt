@@ -28,15 +28,19 @@ public class Student {
     @DatabaseField
     private String username;
 
+    @DatabaseField
+    private String email;
+
     public Student(){
 
     }
 
-    public Student( String name, String surname, String username) {
+    public Student( String name, String surname, String username , String email) {
         super();
         this.name = name;
         this.surname = surname;
         this.username = username;
+        this.email = email;
     }
 
     public String getName() {
@@ -63,6 +67,14 @@ public class Student {
         this.username = username;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -70,28 +82,35 @@ public class Student {
 
         Student student = (Student) o;
 
+        if (id != student.id) return false;
         if (getName() != null ? !getName().equals(student.getName()) : student.getName() != null)
             return false;
         if (getSurname() != null ? !getSurname().equals(student.getSurname()) : student.getSurname() != null)
             return false;
-        return !(getUsername() != null ? !getUsername().equals(student.getUsername()) : student.getUsername() != null);
+        if (getUsername() != null ? !getUsername().equals(student.getUsername()) : student.getUsername() != null)
+            return false;
+        return !(getEmail() != null ? !getEmail().equals(student.getEmail()) : student.getEmail() != null);
 
     }
 
     @Override
     public int hashCode() {
-        int result = getName() != null ? getName().hashCode() : 0;
+        int result = id;
+        result = 31 * result + (getName() != null ? getName().hashCode() : 0);
         result = 31 * result + (getSurname() != null ? getSurname().hashCode() : 0);
         result = 31 * result + (getUsername() != null ? getUsername().hashCode() : 0);
+        result = 31 * result + (getEmail() != null ? getEmail().hashCode() : 0);
         return result;
     }
 
     @Override
     public String toString() {
         return "Student{" +
-                "name='" + name + '\'' +
+                "id=" + id +
+                ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", username='" + username + '\'' +
+                ", email='" + email + '\'' +
                 '}';
     }
 }

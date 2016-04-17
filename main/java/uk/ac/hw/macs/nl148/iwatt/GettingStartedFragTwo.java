@@ -32,6 +32,7 @@ public class GettingStartedFragTwo extends Fragment {
     TextView name_tx;
     TextView surname_tx;
     TextView username_tx;
+    TextView email_tx;
     int count = 0;
 
 
@@ -44,14 +45,15 @@ public class GettingStartedFragTwo extends Fragment {
         name_tx = (TextView) view.findViewById(R.id.name);
         surname_tx = (TextView) view.findViewById(R.id.surname);
         username_tx = (TextView) view.findViewById(R.id.username);
+        email_tx = (TextView) view.findViewById(R.id.email);
 
-        Typeface name_tf = Typeface.createFromAsset(getActivity().getAssets(),"Simple tfb.ttf");
-        Typeface surname_tf = Typeface.createFromAsset(getActivity().getAssets(),"Simple tfb.ttf");
-        Typeface username_tf = Typeface.createFromAsset(getActivity().getAssets(),"Simple tfb.ttf");
+        Typeface tf = Typeface.createFromAsset(getActivity().getAssets(),"Simple tfb.ttf");
 
-        name_tx.setTypeface(name_tf);
-        surname_tx.setTypeface(surname_tf);
-        username_tx.setTypeface(username_tf);
+
+        name_tx.setTypeface(tf);
+        surname_tx.setTypeface(tf);
+        username_tx.setTypeface(tf);
+        email_tx.setTypeface(tf);
 
         final GestureDetector gesture = new GestureDetector(getActivity(),
                 new GestureDetector.SimpleOnGestureListener() {
@@ -119,8 +121,9 @@ public class GettingStartedFragTwo extends Fragment {
             String name = name_tx.getText().toString();
             String surname = surname_tx.getText().toString();
             String username = username_tx.getText().toString();
+            String email = email_tx.getText().toString();
             //studentDao.create(new Student(name.substring(name.indexOf(":")+1),surname.substring(name.indexOf(":")+4) , username.substring(name.indexOf(":")+5)));
-            studentDao.createIfNotExists(new Student(name, surname, username));
+            studentDao.createIfNotExists(new Student(name, surname, username,email));
             List<Student> student = studentDao.queryForAll();
             //studentDao.delete(student);
 

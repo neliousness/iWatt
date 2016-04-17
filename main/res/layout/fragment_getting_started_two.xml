@@ -16,7 +16,7 @@
         android:hint="Name "
         android:ems="12"
         android:id="@+id/name"
-        android:layout_marginTop="126dp"
+        android:layout_marginTop="96dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -39,7 +39,7 @@
         android:layout_below="@+id/name"
         android:layout_alignLeft="@+id/name"
         android:layout_alignStart="@+id/name"
-        android:layout_marginTop="65dp"
+        android:layout_marginTop="35dp"
         android:textColor="#FFFFFF"/>
 
     <EditText
@@ -49,10 +49,23 @@
         android:hint="Username"
         android:ems="12"
         android:id="@+id/username"
-        android:layout_marginTop="62dp"
+        android:layout_marginTop="32dp"
         android:layout_below="@+id/surname"
         android:layout_alignLeft="@+id/surname"
         android:layout_alignStart="@+id/surname"
+        android:textColor="#FFFFFF"/>
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="Email"
+        android:ems="12"
+        android:id="@+id/email"
+        android:layout_marginTop="42dp"
+        android:layout_below="@+id/username"
+        android:layout_alignLeft="@+id/surname"
+        android:layout_alignStart="@+id/surname"
+
         android:textColor="#FFFFFF"/>
 
     <ImageView

@@ -1,0 +1,95 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="uk.ac.hw.macs.nl148.iwatt.Report"
+    android:clickable="true"
+    android:background="@drawable/backg">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/report_name"
+        android:layout_gravity="left|top"
+        android:hint="Name"
+        android:background="@color/colorPrimaryDark"
+        android:textColor="#ffffff"
+        android:ems="6"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="33dp"
+        android:layout_below="@+id/textView5"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        android:id="@+id/report_email"
+        android:hint="Email"
+        android:ems="6"
+        android:textColor="#ffffff"
+        android:layout_marginTop="46dp"
+        android:layout_below="@+id/report_name"
+        android:layout_alignStart="@+id/report_name" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Report"
+        android:id="@+id/textView5"
+        android:textColor="#ffffff"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/report_name"
+        android:layout_marginTop="32dp" />
+
+    <Spinner
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/report_spinner"
+        android:layout_marginLeft="22dp"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/colorPrimary"
+        android:gravity="left"
+        android:layout_marginTop="23dp"
+        android:layout_below="@+id/report_email"
+        android:layout_alignParentStart="true" />
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Exit"
+        android:background="@color/colorPrimary"
+        android:id="@+id/report_exit"
+        android:textColor="#ffffff"
+        android:layout_marginBottom="23dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/report_name"
+        android:layout_marginStart="27dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        android:background="@color/colorPrimary"
+        android:id="@+id/report_submit"
+        android:layout_marginEnd="20dp"
+        android:textColor="#ffffff"
+        android:layout_alignTop="@+id/report_exit"
+        android:layout_alignEnd="@+id/report_message" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        android:ems="16"
+        android:hint="Type message here"
+        android:textColor="#ffffff"
+        android:id="@+id/report_message"
+        android:layout_above="@+id/report_exit"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="79dp" />
+
+</RelativeLayout>

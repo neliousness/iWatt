@@ -493,6 +493,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Toast.makeText(this,"WattZone is unavailable",Toast.LENGTH_SHORT).show();
 
         }
+        else if (id == R.id.nav_report) {
+
+            fragmentManager.beginTransaction()
+                    .replace(R.id.content_frame, new Report())
+                    .commit();
+
+        }
 
 
 
