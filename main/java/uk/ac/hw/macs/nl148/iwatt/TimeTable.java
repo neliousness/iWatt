@@ -57,6 +57,7 @@ public class TimeTable extends AppCompatActivity implements View.OnClickListener
     TextView location;
     final Context context = this;
     ArrayList<TimeTableData> data = new ArrayList<TimeTableData>();
+    String dow_name = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -90,22 +91,27 @@ public class TimeTable extends AppCompatActivity implements View.OnClickListener
         if(dow.contentEquals("mon"))
         {
             toolbar_dow.setText(" :Monday");
+            dow_name = "mondays";
         }
         else if(dow.contentEquals("tue"))
         {
             toolbar_dow.setText(" :Tuesday");
+            dow_name = "tuesdays";
         }
         else if(dow.contentEquals("wed"))
         {
             toolbar_dow.setText(" :Wednesday");
+            dow_name = "wednesdays";
         }
         else if(dow.contentEquals("thurs"))
         {
             toolbar_dow.setText(" :Thursday");
+            dow_name = "thursdays";
         }
         else if(dow.contentEquals("fri"))
         {
             toolbar_dow.setText(" :Friday");
+            dow_name = "fridays";
         }
 
 
@@ -159,7 +165,7 @@ public class TimeTable extends AppCompatActivity implements View.OnClickListener
                     Button info = new Button(TimeTable.this);
                     builder.setTitle("TimeTable");
                     builder.setMessage("\n" +
-                            "\nYou have no lectures/labs/tutorials on this day.\n" +
+                            "\nYou have no lectures/labs/tutorials on "+dow_name+".\n" +
                             "\n");
                     builder.setView(tx);
                     builder.setPositiveButton("OKAY", new DialogInterface.OnClickListener() {
