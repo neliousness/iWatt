@@ -65,6 +65,7 @@ public class GettingStartedFragTwo extends Fragment implements View.OnClickListe
         username_tx.setTypeface(tf);
         email_tx.setTypeface(tf);
         tx_next.setTypeface(tf);
+        tx_next.setOnClickListener(this);
 
 
         return view;
@@ -139,7 +140,7 @@ public class GettingStartedFragTwo extends Fragment implements View.OnClickListe
     @Override
     public void onClick(View v) {
 
-                if(v == next)
+                if(v == next || v == tx_next)
                 {
 
                     if(processStudentData())

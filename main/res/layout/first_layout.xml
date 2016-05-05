@@ -11,8 +11,8 @@
 
     <Button
         android:layout_width="200dp"
-        android:layout_height="40dp"
-        android:background="@color/colorPrimary"
+        android:layout_height="50dp"
+        android:backgroundTint="@color/colorPrimary"
         android:text="Manage Programme"
         android:textColor="@color/common_google_signin_btn_text_dark_default"
 
@@ -24,8 +24,8 @@
 
     <Button
         android:layout_width="200dp"
-        android:layout_height="40dp"
-        android:background="@color/colorPrimary"
+        android:layout_height="50dp"
+        android:backgroundTint="@color/colorPrimary"
         android:text="Manage Electives"
         android:textColor="@color/common_google_signin_btn_text_dark_default"
         android:id="@+id/update_course"
@@ -36,7 +36,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Back"
-        android:background="@color/colorPrimary"
+        android:backgroundTint="@color/colorPrimary"
         android:id="@+id/prog_settings_back"
         android:textColor="@color/common_google_signin_btn_text_dark_default"
         android:layout_alignParentBottom="true"

@@ -35,12 +35,12 @@
                     <item
                         android:id="@+id/nav_first_layout"
                         android:icon="@drawable/ic_programme_setting"
-                        android:title="Programme Settings" />
+                        android:title="Programme" />
                     <item
                         android:id="@+id/nav_second_layout"
                         android:icon="@drawable/graduate22"
 
-                        android:title="Personal Settings" />
+                        android:title="Personal" />
 
                 </menu>
             </item>

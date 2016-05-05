@@ -35,6 +35,7 @@ public class GettingStartedFragOne extends Fragment  implements  View.OnClickLis
         tx_begin = (TextView) view.findViewById(R.id.tx_one);
 
         begin.setOnClickListener(this);
+        tx_begin.setOnClickListener(this);
         tx_begin.setTypeface(tf);
 
         return view;
@@ -44,7 +45,7 @@ public class GettingStartedFragOne extends Fragment  implements  View.OnClickLis
     @Override
     public void onClick(View v) {
 
-        if (v == begin) {
+        if (v == begin || v == tx_begin) {
            // getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.f_one, new GettingStartedFragTwo()).commit();
             ((GettingStarted)getActivity()).setCurrentItem (1, true);
         }

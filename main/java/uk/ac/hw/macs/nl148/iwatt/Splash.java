@@ -70,7 +70,7 @@ public class Splash extends Activity {
                @Override
                public void onAnimationEnd(Animation animation) {
 
-                   Firebase programme = new Firebase("https://glowing-heat-7374.firebaseio.com/");
+                   final Firebase programme = new Firebase("https://glowing-heat-7374.firebaseio.com/");
 
 
 
@@ -104,7 +104,7 @@ public class Splash extends Activity {
                            List<Student> student = studentDao.queryForAll();
                            // studentDao.delete(student);
 
-                           // List<LocalProgramme> l= localDao.queryForAll();
+                            List<LocalProgramme> l= localDao.queryForAll();
                            // localDao.delete(l);
 
                            //List<LocalCourse> c= courseDao.queryForAll();
@@ -115,7 +115,11 @@ public class Splash extends Activity {
 
                            // Checks to see if local student table is empty , if empty ,GettingStarted Activity starts
 
-                           if(student.isEmpty()) {
+                           if(student.isEmpty() || l.isEmpty()) {
+
+                               localDao.delete(l);
+                               studentDao.delete(student);
+
 
                                Intent gettingStarted = new Intent(getBaseContext(), GettingStarted.class);
                                gettingStarted.putStringArrayListExtra("programme", listCourse);
@@ -124,7 +128,7 @@ public class Splash extends Activity {
                                finish();
                                startActivity(gettingStarted);
                            }
-                           else if(!student.isEmpty())
+                           else if(!student.isEmpty() || !l.isEmpty())
                            {
 
                                Intent main = new Intent(getBaseContext(), MainActivity.class);

@@ -72,8 +72,8 @@
 
 
     <Button
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_marginLeft="60dp"
         android:id="@+id/next_two"
         android:background="@drawable/next"
@@ -84,10 +84,11 @@
     <TextView
         android:layout_width="150dp"
         android:layout_height="50dp"
-        android:text=" Next"
-        android:textSize="30dp"
+        android:text="     Next"
+        android:textSize="25dp"
         android:layout_marginLeft="160dp"
         android:id="@+id/tx_two"
+        android:layout_marginTop="5dp"
         android:layout_alignTop="@+id/next_two"
         android:layout_centerHorizontal="true" />
 

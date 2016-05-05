@@ -180,8 +180,26 @@ public class LectureRating extends AppCompatActivity implements View.OnClickList
 
                     Toast.makeText(this, "Please rate all questions", Toast.LENGTH_SHORT).show();
                 } else {
-                    Log.d("status", "all is done");
-                    sendMail("mrneliolucas@gmail.com", "Answered Evaluation Form for " + dropdown.getSelectedItem().toString(), message);
+
+                    boolean send = true;
+                    for (LectureRatingData ld : filteredArray)
+                    {
+                        //check if any questions are questions have not been rated
+                        if(ld.getRating() == 0.0f)
+                        {
+                            send = false;
+                        }
+                    }
+
+                    if(send) {
+
+                        Log.d("status", "all is done");
+                        sendMail("mrneliolucas@gmail.com", "Answered Evaluation Form for " + dropdown.getSelectedItem().toString(), message);
+                    }
+                    else
+                    {
+                        Toast.makeText(this, "You have not rated one or more questions", Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
             else
