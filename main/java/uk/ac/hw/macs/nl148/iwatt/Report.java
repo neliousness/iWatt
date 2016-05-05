@@ -115,7 +115,7 @@ public class Report extends Fragment implements View.OnClickListener {
             {
                 AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                 TextView tx = new TextView(getActivity());
-                builder.setTitle("Report");
+                builder.setTitle("Error");
                 builder.setMessage("\n" +
                         "\nEmail address is invalid.\n" +
                         "\n\n" +"Please go to Personal Settings to change it.");

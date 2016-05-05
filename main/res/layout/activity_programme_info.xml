@@ -12,6 +12,19 @@
 
     <TextView
         android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Year : Loading..."
+        android:id="@+id/stage_year"
+        android:textColor="@color/common_google_signin_btn_text_dark_default"
+        android:layout_above="@+id/course_name"
+        android:layout_marginBottom="-60dp"
+        android:layout_marginLeft="220dp"
+         />
+
+
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Course : Loading..."
@@ -19,7 +32,7 @@
         android:id="@+id/course_name"
         android:layout_marginTop="60dp"
         android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/scrollView3" />
+        android:layout_alignStart="@+id/aim_scroll" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -31,17 +44,6 @@
         android:layout_below="@+id/course_name"
         android:layout_alignStart="@+id/course_name" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Year : Loading..."
-        android:id="@+id/stage_year"
-        android:textColor="@color/common_google_signin_btn_text_dark_default"
-        android:layout_marginBottom="25dp"
-        android:layout_alignBottom="@+id/course_name"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="11dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -55,24 +57,14 @@
         android:layout_alignStart="@+id/coordinator"
         android:layout_marginTop="12dp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="@color/common_google_signin_btn_text_dark_default"
-        android:textStyle="bold"
-        android:text="Syllabus"
-        android:id="@+id/syllabus"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="40dp"
-        android:layout_below="@+id/scrollView3"
-        android:layout_alignStart="@+id/scrollView3" />
     <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="120dp"
-        android:layout_marginTop="160dp"
+        android:layout_marginTop="20dp"
         android:layout_marginLeft="30dp"
-        android:id="@+id/scrollView3">
+        android:layout_below="@+id/aims"
+        android:id="@+id/aim_scroll"
+        android:fillViewport="false">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="300dp"
@@ -84,11 +76,25 @@
             android:layout_alignStart="@+id/aims"
             android:layout_marginTop="-0dp" />
     </ScrollView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/common_google_signin_btn_text_dark_default"
+        android:textStyle="bold"
+        android:text="Syllabus"
+        android:id="@+id/syllabus"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="40dp"
+        android:layout_below="@+id/aim_scroll"
+        android:layout_alignStart="@+id/aim_scroll" />
     <ScrollView
         android:layout_width="wrap_content"
-        android:layout_height="200dp"
+        android:layout_height="120dp"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="330dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/syllabus"
         android:id="@+id/scrollView2">
         <TextView
         android:layout_width="wrap_content"

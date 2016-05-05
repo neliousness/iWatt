@@ -132,51 +132,77 @@ public class SecondFragment extends Fragment implements View.OnClickListener{
 
             else {
 
-                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                TextView tx = new TextView(getActivity());
-                builder.setTitle("Confirm");
-                builder.setMessage("\n" +
-                         "Are you sure you want to save?" );
-                builder.setView(tx);
-                builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
 
+                if (!email.getText().toString().contains("@") || !email.getText().toString().contains(".")) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                    TextView tx = new TextView(getActivity());
+                    builder.setTitle("Error");
+                    builder.setMessage("\n" +
+                            "\nEmail address is invalid.\n");
+                    builder.setView(tx);
+                    builder.setPositiveButton("OKAY", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                            AlertDialog build = builder.create();
+                            build.cancel();
 
-                        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                        AlertDialog build = builder.create();
-                        try {
-                            updateBuilder.update();
-                        } catch (SQLException e) {
-                            e.printStackTrace();
                         }
-                        build.cancel();
-                        Toast.makeText(getActivity(), "Personal Information updated!", Toast.LENGTH_SHORT).show();
-                        OpenHelperManager.releaseHelper();
-                        //List<Student> local = studentDao.queryForAll();
-                        //Log.d("bean", local.toString());
-                        Intent i = new Intent(getActivity(), MainActivity.class);
-                        getActivity().finish();
-                        startActivity(i);
 
-                    }
-                });
-                builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
+                    });
+
+                    AlertDialog build = builder.create();
+                    build.setCanceledOnTouchOutside(false);
+                    build.show();
+                } else {
 
 
-                        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                        AlertDialog build = builder.create();
-                        build.cancel();
+                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                    TextView tx = new TextView(getActivity());
+                    builder.setTitle("Confirm");
+                    builder.setMessage("\n" +
+                            "Are you sure you want to save?");
+                    builder.setView(tx);
+                    builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
 
-                    }
-                });
 
-                AlertDialog build = builder.create();
-                build.setCanceledOnTouchOutside(false);
-                build.show();
+                            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                            AlertDialog build = builder.create();
+                            try {
+                                updateBuilder.update();
+                            } catch (SQLException e) {
+                                e.printStackTrace();
+                            }
+                            build.cancel();
+                            Toast.makeText(getActivity(), "Personal Information updated!", Toast.LENGTH_SHORT).show();
+                            OpenHelperManager.releaseHelper();
+                            //List<Student> local = studentDao.queryForAll();
+                            //Log.d("bean", local.toString());
+                            Intent i = new Intent(getActivity(), MainActivity.class);
+                            getActivity().finish();
+                            startActivity(i);
 
+                        }
+                    });
+                    builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+
+
+                            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                            AlertDialog build = builder.create();
+                            build.cancel();
+
+                        }
+                    });
+
+                    AlertDialog build = builder.create();
+                    build.setCanceledOnTouchOutside(false);
+                    build.show();
+
+                }
             }
         }
 

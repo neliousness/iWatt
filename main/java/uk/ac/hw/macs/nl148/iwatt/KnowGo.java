@@ -226,7 +226,7 @@ public class KnowGo extends AppCompatActivity implements OnMapReadyCallback, Goo
 
         mMap.addMarker(new MarkerOptions().position(WP_BUILDING).title("William Perking Building"));
 
-        mMap.addMarker(new MarkerOptions().position(MAIN_RECEPTION).title("Heriot Watt University : Main Reception")
+        mMap.addMarker(new MarkerOptions().position(MAIN_RECEPTION).title("Heriot-Watt University : Main Reception")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
 
 
@@ -262,10 +262,10 @@ public class KnowGo extends AppCompatActivity implements OnMapReadyCallback, Goo
 
         mMap.addMarker(new MarkerOptions().position(JWC2_CENTER).title("James Watt Centre II"));
 
-        mMap.addMarker(new MarkerOptions().position(SU_BUILDING).title("Heriot Watt Student Union : Student Union").
+        mMap.addMarker(new MarkerOptions().position(SU_BUILDING).title("Heriot-Watt University: Student Union").
                 icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)));
 
-        mMap.addMarker(new MarkerOptions().position(CHAPLAINCY).title("Heriot Watt University: The Chaplaincy").
+        mMap.addMarker(new MarkerOptions().position(CHAPLAINCY).title("Heriot-Watt University: The Chaplaincy").
                 icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
 
         mMap.addMarker(new MarkerOptions().position(THE_PIECE).title("The Piece").
@@ -318,10 +318,10 @@ public class KnowGo extends AppCompatActivity implements OnMapReadyCallback, Goo
                 icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_VIOLET)));
 
         mMap.addMarker(new MarkerOptions().position(SWS).title("Student Service Center").
-                icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
+                icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)));
 
         mMap.addMarker(new MarkerOptions().position(SAC).title("Student Accommodation Center").
-                icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
+                icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)));
 
 
         mMap.getUiSettings();

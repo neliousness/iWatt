@@ -19,7 +19,7 @@
         android:textColor="#ffffff"
         android:layout_marginTop="47dp"
         android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/scrollView3" />
+        android:layout_alignStart="@+id/aim_scroll" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -53,14 +53,14 @@
         android:id="@+id/syllabus"
         android:layout_marginTop="20dp"
         android:layout_marginRight="40dp"
-        android:layout_below="@+id/scrollView3"
-        android:layout_alignStart="@+id/scrollView3" />
+        android:layout_below="@+id/aim_scroll"
+        android:layout_alignStart="@+id/aim_scroll" />
     <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="120dp"
         android:layout_marginTop="160dp"
         android:layout_marginLeft="30dp"
-        android:id="@+id/scrollView3">
+        android:id="@+id/aim_scroll">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="300dp"
