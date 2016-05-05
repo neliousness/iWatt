@@ -106,6 +106,7 @@ public class TimeTableInit extends AppCompatActivity implements View.OnClickList
 
             timetable.putExtra("timetabledata", tlist);
             timetable.putExtra("dow", "mon");
+            finish();
             startActivity(timetable);
 
         }
@@ -124,8 +125,9 @@ public class TimeTableInit extends AppCompatActivity implements View.OnClickList
             Intent timetable = new Intent(this , TimeTable.class);
 
             timetable.putExtra("timetabledata",tlist);
-
             timetable.putExtra("dow" , "wed");
+            finish();
+            finish();
             startActivity(timetable);
         }
 
@@ -134,6 +136,7 @@ public class TimeTableInit extends AppCompatActivity implements View.OnClickList
             Intent timetable = new Intent(this , TimeTable.class);
             timetable.putExtra("timetabledata",tlist);
             timetable.putExtra("dow" , "thurs");
+            finish();
             startActivity(timetable);
 
         }
@@ -143,6 +146,7 @@ public class TimeTableInit extends AppCompatActivity implements View.OnClickList
             Intent timetable = new Intent(this , TimeTable.class);
             timetable.putExtra("timetabledata",tlist);
             timetable.putExtra("dow" ,"fri");
+            finish();
             startActivity(timetable);
         }
 

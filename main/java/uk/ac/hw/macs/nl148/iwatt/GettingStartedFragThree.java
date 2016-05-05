@@ -25,6 +25,7 @@ import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
+import com.firebase.client.snapshot.ValueIndex;
 import com.j256.ormlite.android.apptools.OpenHelperManager;
 import com.j256.ormlite.dao.RuntimeExceptionDao;
 
@@ -41,11 +42,13 @@ import java.util.regex.Pattern;
  * Description: This fragment prompts the user to select a programme and a year of study for the selected
  * programme
  */
-public class GettingStartedFragThree extends Fragment {
+public class GettingStartedFragThree extends Fragment implements View.OnClickListener {
 
     AutoCompleteTextView myAutoComplete;
     NumberPicker year;
     DBHelper dbHelper;
+    Button next;
+    TextView tx_next;
 
 
     @Override
@@ -56,6 +59,8 @@ public class GettingStartedFragThree extends Fragment {
         View view = inflater.inflate(R.layout.fragment_getting_started_three, container, false);
         myAutoComplete = (AutoCompleteTextView) view.findViewById(R.id.auto);
         year = ( NumberPicker) view.findViewById(R.id.length);
+        next = (Button) view.findViewById(R.id.next_three);
+        tx_next = (TextView) view.findViewById(R.id.tx_three);
 
         year.setMinValue(1);
         year.setMaxValue(5);
@@ -71,51 +76,8 @@ public class GettingStartedFragThree extends Fragment {
         myAutoComplete.setThreshold(1);
         myAutoComplete.setTypeface(tf);
         myAutoComplete.setAdapter(arrayAdapter);
-
-        final GestureDetector gesture = new GestureDetector(getActivity(),
-                new GestureDetector.SimpleOnGestureListener() {
-
-                    @Override
-                    public boolean onDown(MotionEvent e) {
-                        return true;
-                    }
-
-                    @Override
-                    public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX,
-                                           float velocityY) {
-                        Log.i(SyncStateContract.Constants.ACCOUNT_NAME, "onFling has been called!");
-                        final int SWIPE_MIN_DISTANCE = 200;
-                        final int SWIPE_MAX_OFF_PATH = 250;
-                        final int SWIPE_THRESHOLD_VELOCITY = 210;
-                        try {
-                            if (Math.abs(e1.getY() - e2.getY()) > SWIPE_MAX_OFF_PATH)
-                                return false;
-                            if (e1.getX() - e2.getX() > SWIPE_MIN_DISTANCE
-                                    && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
-
-                                Log.i(SyncStateContract.Constants.ACCOUNT_NAME, "Right to Left");
-
-                            } else if (e2.getX() - e1.getX() > SWIPE_MIN_DISTANCE
-                                    && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
-                                Log.i(SyncStateContract.Constants.ACCOUNT_NAME, "Left to Right");
-                            }
-                        } catch (Exception e) {
-                            // nothing
-                        }
-                        return super.onFling(e1, e2, velocityX, velocityY);
-                    }
-                });
-
-
-        view.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-
-                processProgrammeData();
-
-                return gesture.onTouchEvent(event);
-            }
-        });
+        next.setOnClickListener(this);
+        tx_next.setTypeface(tf);
 
 
         return view;
@@ -169,11 +131,14 @@ public class GettingStartedFragThree extends Fragment {
                                     
                                     programmeDao.createIfNotExists(new LocalProgramme(prog.getProgCode(), myAutoComplete.getText().toString(), length, study_year));
                                     List<LocalProgramme> programmes = programmeDao.queryForAll();
-                                    Log.d("this programe", programmes.toString());
-                                    System.out.println("This other programme" + programmes.toString());
+                                    //Log.d("this programe", programmes.toString());
+                                    //System.out.println("This other programme" + programmes.toString());
                                     //programmeDao.delete(programmes);
                                     OpenHelperManager.releaseHelper();
-                                    System.out.println(prog.getProgDesc() + " +++ " + myAutoComplete.getText());
+
+                                    GettingStarted g = (GettingStarted)getActivity();
+                                    g.setCurrentItem (3, true);
+                                    //System.out.println(prog.getProgDesc() + " +++ " + myAutoComplete.getText());
                                 }
                                 else
                                 {
@@ -181,10 +146,10 @@ public class GettingStartedFragThree extends Fragment {
                                     AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                                     TextView tx = new TextView(getActivity());
                                     Button info = new Button(getActivity());
-                                    builder.setTitle("Warning");
+                                    builder.setTitle("Error");
                                     builder.setMessage("\n" +
-                                            "\nInformation on the programme you selected is unavailable.\n" +
-                                            "\nShould you wish to proceed with the selected programme, the application may behave unexpectedly or crash.");
+                                            "\nInformation on the programme you selected is currently unavailable.\n" +
+                                            "\nPlease select a programme provided by the MACS department. ");
                                     builder.setView(tx);
                                     builder.setPositiveButton("OKAY, GOT IT!", new DialogInterface.OnClickListener() {
                                         @Override
@@ -229,6 +194,15 @@ public class GettingStartedFragThree extends Fragment {
     }
 
 
+    @Override
+    public void onClick(View v) {
+
+        if(v == next)
+        {
+            processProgrammeData();
+        }
+
+    }
 }
 
 

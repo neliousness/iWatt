@@ -90,27 +90,27 @@ public class TimeTable extends AppCompatActivity implements View.OnClickListener
         //adds day of the week to toolbar
         if(dow.contentEquals("mon"))
         {
-            toolbar_dow.setText(" :Monday");
+            toolbar_dow.setText("Monday");
             dow_name = "mondays";
         }
         else if(dow.contentEquals("tue"))
         {
-            toolbar_dow.setText(" :Tuesday");
+            toolbar_dow.setText("Tuesday");
             dow_name = "tuesdays";
         }
         else if(dow.contentEquals("wed"))
         {
-            toolbar_dow.setText(" :Wednesday");
+            toolbar_dow.setText("Wednesday");
             dow_name = "wednesdays";
         }
         else if(dow.contentEquals("thurs"))
         {
-            toolbar_dow.setText(" :Thursday");
+            toolbar_dow.setText("Thursday");
             dow_name = "thursdays";
         }
         else if(dow.contentEquals("fri"))
         {
-            toolbar_dow.setText(" :Friday");
+            toolbar_dow.setText("Friday");
             dow_name = "fridays";
         }
 

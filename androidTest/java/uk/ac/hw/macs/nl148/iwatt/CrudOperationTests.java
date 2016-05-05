@@ -33,12 +33,12 @@ public class CrudOperationTests extends AndroidTestCase {
         //assert that therea are no entries in the table
         assertEquals(0, studentList.size());
 
-        studentDao.create(new Student("Kilo", "Milo", "Dilo"));
+        studentDao.create(new Student("Kilo", "Milo", "Dilo", "dun@m.com"));
 
         //assert that there is one entry in the table
         List<Student> studentList2 = studentDao.queryForAll();
-        Student student = new Student("Kilo", "Milo", "Dilo");
-        assertEquals(student, studentList2.get(0));
+        Student student = new Student("Kilo", "Milo", "Dilo","dun@m.com");
+        assertEquals("dun@m.com", studentList2.get(0).getEmail());
 
 
     }
@@ -72,7 +72,7 @@ public class CrudOperationTests extends AndroidTestCase {
 
         courseDao.create(new LocalCourse("ABC", 3, "Super Computing", "John Cena", "yes"));
         courseDao.create(new LocalCourse("DEF",3,"Advanced Super Computing", "Stuart Cena", "no"));
-        courseDao.create(new LocalCourse("GHI",3,"Supreme Super Computing", "Micheal Cena", "yes"));
+        courseDao.create(new LocalCourse("GHI", 3, "Supreme Super Computing", "Micheal Cena", "yes"));
         courseDao.create(new LocalCourse("JKL", 3, "Divine Super Computing", "Rob Cena", "yes"));
 
         //assert that 4 courses have been inserted
@@ -265,5 +265,29 @@ public class CrudOperationTests extends AndroidTestCase {
         assertEquals("no",courses.get(1).getMandatory());
 
 
+    }
+
+    public void testDeleteCourse()
+    {
+        dbHelperTest = OpenHelperManager.getHelper(mContext, DBHelperTest.class);
+        courseDao = dbHelperTest.getCourseExceptionDao();
+        List<LocalCourse> courses = courseDao.queryForAll();
+        courseDao.delete(courses);
+    }
+
+    public void testDeleteProgramme()
+    {
+        dbHelperTest = OpenHelperManager.getHelper(mContext, DBHelperTest.class);
+        localProgrammesDao = dbHelperTest.getProgrammeExceptionDao();
+        List<LocalProgramme> programme = localProgrammesDao.queryForAll();
+        localProgrammesDao.delete(programme);
+    }
+
+    public void testDeleteStudent()
+    {
+        dbHelperTest = OpenHelperManager.getHelper(mContext, DBHelperTest.class);
+        studentDao = dbHelperTest.getStudentExceptionDao();
+        List<Student> student = studentDao.queryForAll();
+        studentDao.delete(student);
     }
 }

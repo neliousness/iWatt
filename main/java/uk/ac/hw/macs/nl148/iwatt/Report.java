@@ -216,6 +216,8 @@ public class Report extends Fragment implements View.OnClickListener {
         if(exit == v)
         {
             getActivity().getFragmentManager().beginTransaction().remove(this).commit();
+
+
         }
 
     }

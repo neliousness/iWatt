@@ -96,20 +96,22 @@ public class KnowGo extends AppCompatActivity implements OnMapReadyCallback, Goo
     private static final LatLng CAFE_BRIO = new LatLng(55.91034, -3.32211);
     private static final LatLng C_BUILDING = new LatLng( 55.911953, -3.317108);
     private static final LatLng SA = new LatLng(55.908698, -3.316520);
-    private  static final LatLng EF_BUILDING =  new LatLng(55.908143, -3.321318);
+    private static final LatLng EF_BUILDING =  new LatLng(55.908143, -3.321318);
     private static final LatLng HP_BUILDING= new LatLng(55.908386, -3.321807);
     private static final LatLng GC_BUILDING = new LatLng(55.908670, -3.322475);
     private static final LatLng NURSERY= new LatLng(55.912627, -3.320212);
-    private  static  final LatLng MEDICAL_C = new LatLng(55.909905, -3.318577);
-    private  static  final LatLng EBS = new LatLng(55.908528, -3.320221);
-    private  static  final LatLng BUS1 = new LatLng(55.908997, -3.319817);
-    private  static  final LatLng BUS2 = new LatLng(55.908997, -3.319817);
-    private  static  final LatLng BUS3 = new LatLng(55.910220, -3.317677);
-    private  static  final LatLng BUS4 = new LatLng(55.912917, -3.323330);
-    private  static  final LatLng DEWEYS = new LatLng(55.908777, -3.321679);
-    private  static  final LatLng DAVINCI = new LatLng(55.912093, -3.323650);
-    private  static  final LatLng  ELEMENTS = new LatLng(55.910110, -3.322082);
-    private  static  final LatLng  CENTRAL = new LatLng(55.909914, -3.322246);
+    private static final LatLng MEDICAL_C = new LatLng(55.909905, -3.318577);
+    private static final LatLng EBS = new LatLng(55.908528, -3.320221);
+    private static final LatLng BUS1 = new LatLng(55.908997, -3.319817);
+    private static final LatLng BUS2 = new LatLng(55.908997, -3.319817);
+    private static final LatLng BUS3 = new LatLng(55.910220, -3.317677);
+    private static final LatLng BUS4 = new LatLng(55.912917, -3.323330);
+    private static final LatLng DEWEYS = new LatLng(55.908777, -3.321679);
+    private static final LatLng DAVINCI = new LatLng(55.912093, -3.323650);
+    private static final LatLng  ELEMENTS = new LatLng(55.910110, -3.322082);
+    private static final LatLng  CENTRAL = new LatLng(55.909914, -3.322246);
+    private static final LatLng  SWS = new LatLng(55.910409, -3.322285);
+    private static final LatLng  SAC = new LatLng(55.910426, -3.322282);
 
 
 
@@ -166,10 +168,10 @@ public class KnowGo extends AppCompatActivity implements OnMapReadyCallback, Goo
         locations.put(GC_LIBRARY, "Library");
         locations.put(JWC_CENTER, "James Watt I");
         locations.put(JWC2_CENTER, "James Watt II");
-        locations.put(SU_BUILDING, "Student Union ");
+        locations.put(SU_BUILDING, "Student Union");
         locations.put(CHAPLAINCY, "Chaplaincy");
-        locations.put(THE_PIECE, "The Piece ");
-        locations.put(CAFE_BRIO, "Cafe Brio ");
+        locations.put(THE_PIECE, "The Piece");
+        locations.put(CAFE_BRIO, "Cafe Brio");
         locations.put(C_BUILDING, "Conoco");
         locations.put(SA, "Sports Academy");
         locations.put(EF_BUILDING, "Esmée Fairbairn");
@@ -186,6 +188,10 @@ public class KnowGo extends AppCompatActivity implements OnMapReadyCallback, Goo
         locations.put(DAVINCI, "da Vinci's");
         locations.put(ELEMENTS, "Elements");
         locations.put(CENTRAL, "Central");
+        locations.put(SWS, "Student Service Center");
+        locations.put(SAC, "Student Accommodation Center");
+
+
 
         ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, locations.values().toArray());
         findMap.setThreshold(1);
@@ -310,6 +316,12 @@ public class KnowGo extends AppCompatActivity implements OnMapReadyCallback, Goo
 
         mMap.addMarker(new MarkerOptions().position(ELEMENTS).title("Elements").
                 icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_VIOLET)));
+
+        mMap.addMarker(new MarkerOptions().position(SWS).title("Student Service Center").
+                icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
+
+        mMap.addMarker(new MarkerOptions().position(SAC).title("Student Accommodation Center").
+                icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
 
 
         mMap.getUiSettings();

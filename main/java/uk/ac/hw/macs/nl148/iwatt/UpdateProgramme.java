@@ -166,7 +166,7 @@ public class UpdateProgramme extends AppCompatActivity implements View.OnClickLi
                                 TextView tx = new TextView(this);
                                 builder.setTitle("Error");
                                 builder.setMessage("\n" +
-                                        "\nInformation on the programme you selected is unavailable.\n" +
+                                        "\nInformation on the programme you selected is currently unavailable.\n" +
                                         "\nPlease select a programme provided by the MACS department. ");
                                 builder.setView(tx);
                                 builder.setPositiveButton("OKAY, GOT IT!", new DialogInterface.OnClickListener() {

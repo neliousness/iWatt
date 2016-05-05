@@ -3,6 +3,8 @@ package uk.ac.hw.macs.nl148.iwatt;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
+import android.view.MotionEvent;
+import android.view.View;
 
 /**
  * Author: Nelio Lucas
@@ -26,9 +28,19 @@ public class GettingStarted extends FragmentActivity {
         viewPager = (ViewPager) findViewById(R.id.pager);
         SwipeAdaptor swipeAdaptor = new SwipeAdaptor(getSupportFragmentManager());
         viewPager.setAdapter(swipeAdaptor);
+        viewPager.setOnTouchListener(new View.OnTouchListener()
+        {
+            @Override
+            public boolean onTouch(View v, MotionEvent event)
+            {
+                return true;
+            }
+        });
 
     }
-
+    public void setCurrentItem (int item, boolean smoothScroll) {
+        viewPager.setCurrentItem(item, smoothScroll);
+    }
 
     @Override
     protected void onDestroy() {

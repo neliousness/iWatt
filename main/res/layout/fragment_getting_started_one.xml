@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/f_one"
     tools:context="uk.ac.hw.macs.nl148.freshersapp.GettingStartedFragment"
     android:background="@drawable/backg">
 
@@ -11,7 +12,31 @@
         android:layout_height="match_parent"
         android:background="@drawable/left_swipe"
 
-        />
+        >
+
+        <Button
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="220dp"
+            android:layout_marginTop="140dp"
+            android:id="@+id/button_one"
+            android:background="@drawable/next"
+            android:layout_gravity="bottom"></Button>
+
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:text="Begin"
+            android:textSize="30dp"
+            android:layout_marginLeft="-150dp"
+            android:layout_marginTop="140dp"
+            android:id="@+id/tx_one"
+            android:layout_gravity="bottom" />
+
+
+
+
+    </LinearLayout>
 
 
 </RelativeLayout>

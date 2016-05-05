@@ -87,6 +87,7 @@ public class LectureRating extends AppCompatActivity implements View.OnClickList
         back = (Button) findViewById(R.id.rate_back);
         back.setOnClickListener(this);
 
+        //adding questions to ratings list view
         questions.add(new LectureRatingData("Level of effort you put into the course",0.0f));
         questions.add(new LectureRatingData("Level of skill/knowledge at start of course",0.0f));
         questions.add(new LectureRatingData("Level of skill/knowledge at end of course", 0.0f));
@@ -223,7 +224,7 @@ public class LectureRating extends AppCompatActivity implements View.OnClickList
         }
     }
 
-
+    //future use
     public void addAttachment(String filename) throws Exception {
         BodyPart messageBodyPart = new MimeBodyPart();
         DataSource source = new FileDataSource(filename);
