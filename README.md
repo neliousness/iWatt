@@ -38,7 +38,6 @@ This is a 4th year dissertation project
 
    download commons-collections4-4.1.jar
    from https://commons.apache.org/proper/commons-collections/download_collections.cgi
-   
    download firebase-client-android-2.5.0.jar from https://www.firebase.com/docs/android/api/
 
 
@@ -46,17 +45,17 @@ This is a 4th year dissertation project
 
 1. Create a new project in Android Studio.(Note: set the Company Domain to "uk.ac.hw.macs.nl148.iwatt") 
 
-2. go into the "app" directiory and delete all of its content
+2. Go into the "app" directiory and delete all of its content
 
 3. Open a terminal/command prompt in the empty "app" directory
 
-4. type "git clone https://github.com/neliousness/iWatt.git" in the command prompt/terminal and press return
+4. Type "git clone https://github.com/neliousness/iWatt.git" in the command prompt/terminal and press return
 
 5. In the "app" directory, create a new directory named "libs"
 
-6. copy and paste all of the jar files mentioned in the Dependecies section into the libs folder.
+6. Copy and paste all of the jar files mentioned in the Dependecies section into the libs folder.
 
-7. in Android Studio, change the file structure view from "Android" to Project. Navigate to the libs folder. Right click each jar file and click on "Add as library"
+7. In Android Studio, change the file structure view from "Android" to Project. Navigate to the libs folder. Right click each jar file and click on "Add as library"
 
 8. Revert to the Android file structure view. Double click on "build.gradle (Module: app)". Overrite all of the files contents with the folloing :
 
