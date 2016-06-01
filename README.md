@@ -59,7 +59,7 @@ This is a 4th year dissertation project
 
 8. Revert to the Android file structure view. Double click on "build.gradle (Module: app)". Overrite all of the files contents with the folloing :
 
-
+```
 apply plugin: 'com.android.application'
 
 android {
@@ -119,7 +119,7 @@ dependencies {
     compile 'de.hdodenhof:circleimageview:1.3.0'
     compile 'com.android.support:design:23.1.1'
 }
-
+```
 
 9. Rebuild the project
 
