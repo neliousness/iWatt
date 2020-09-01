@@ -91,7 +91,7 @@ android {
         exclude 'META-INF/NOTICE.txt'
 
     }
-}
+
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
@@ -118,7 +118,7 @@ dependencies {
     compile 'com.google.android.gms:play-services:8.4.0'
     compile 'de.hdodenhof:circleimageview:1.3.0'
     compile 'com.android.support:design:23.1.1'
-}
+    }
 
 }
 
