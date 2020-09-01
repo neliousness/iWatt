@@ -120,6 +120,8 @@ dependencies {
     compile 'com.android.support:design:23.1.1'
 }
 
+}
+
 
 9. Rebuild the project
 
