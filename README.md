@@ -93,34 +93,34 @@ android {
     }
 
 
-dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    testCompile 'junit:junit:4.12'
-    compile files('libs/firebase-client-android-2.5.0.jar')
-    compile files('libs/java-json.jar')
-    compile files('libs/json-lib-2.4-jdk15.jar')
-    compile files('libs/commons-collections4-4.1.jar')
-    // Required -- JUnit 4 framework
-    testCompile 'junit:junit:4.12'
-    // Optional -- Mockito framework
-    testCompile 'org.mockito:mockito-core:1.10.19'
-    compile files('libs/mail.jar')
-    compile files('libs/additionnal.jar')
-    compile files('libs/activation.jar')
-    androidTestCompile 'com.android.support.test.espresso:espresso-core:2.0'
-    androidTestCompile 'com.android.support.test:testing-support-lib:0.1'
+    dependencies {
+        compile fileTree(include: ['*.jar'], dir: 'libs')
+        testCompile 'junit:junit:4.12'
+        compile files('libs/firebase-client-android-2.5.0.jar')
+        compile files('libs/java-json.jar')
+        compile files('libs/json-lib-2.4-jdk15.jar')
+        compile files('libs/commons-collections4-4.1.jar')
+        // Required -- JUnit 4 framework
+        testCompile 'junit:junit:4.12'
+        // Optional -- Mockito framework
+        testCompile 'org.mockito:mockito-core:1.10.19'
+        compile files('libs/mail.jar')
+        compile files('libs/additionnal.jar')
+        compile files('libs/activation.jar')
+        androidTestCompile 'com.android.support.test.espresso:espresso-core:2.0'
+        androidTestCompile 'com.android.support.test:testing-support-lib:0.1'
 
 
-    compile 'com.android.support:appcompat-v7:23.1.1'
-    compile 'com.android.support:support-v4:23.1.1'
-    compile 'com.j256.ormlite:ormlite-core:4.48'
-    compile 'com.j256.ormlite:ormlite-android:4.48'
-    compile 'com.google.android.gms:play-services:8.4.0'
-    compile 'de.hdodenhof:circleimageview:1.3.0'
-    compile 'com.android.support:design:23.1.1'
+        compile 'com.android.support:appcompat-v7:23.1.1'
+        compile 'com.android.support:support-v4:23.1.1'
+        compile 'com.j256.ormlite:ormlite-core:4.48'
+        compile 'com.j256.ormlite:ormlite-android:4.48'
+        compile 'com.google.android.gms:play-services:8.4.0'
+        compile 'de.hdodenhof:circleimageview:1.3.0'
+        compile 'com.android.support:design:23.1.1'
+        }
+
     }
-
-}
 
 
 9. Rebuild the project
