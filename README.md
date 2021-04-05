@@ -2,13 +2,13 @@
 
 
 ## Synopsis 
-This is a prototype data-driven android application designed to aid students at a university 
+This is a prototype data-driven android application designed to aid students at Heriot-Watt University 
 
 
 ## Motivations
-This is a 4th year dissertation project
+This is a 2015 4th year dissertation project
 
-##Dependencies
+## Dependencies
 
     
   
